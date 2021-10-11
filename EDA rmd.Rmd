@@ -1,0 +1,189 @@
+---
+title: "Case Study 1"
+author: "Joaquin"
+date: "10/8/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## R Markdown
+```{r}
+library(tidyverse)
+library(ggpubr)
+beers <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv")
+breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv")
+
+```
+
+````{r}
+##How many breweries are present in each state?
+#This table outlines the quantity of breweries in each state and will be used as the basis of the following charts.
+numbystate <- data.frame(breweries %>% count(State))
+numbystate
+numbystate$State <- as.factor(numbystate$State)
+
+#bar graph depicting the number of breweries in each state
+numbystate %>% ggplot(aes(x = reorder(State, n), alpha = n, y = n, fill = State)) + 
+  geom_bar(stat = 'identity', fill = "steelblue3") + 
+  coord_flip() + 
+  theme_classic() + 
+  theme(legend.position = "none") +
+  labs(x = "Count", y = "State") +
+  ggtitle("Number of Breweries per State")
+
+#Different chart (polar coordinates) giving a better visualization of relative amount of breweries in each state.
+numbystate %>% ggplot(aes(x = State, y = n, fill = State)) + 
+  geom_bar(stat = 'identity') + 
+  coord_polar() + theme_bw() + 
+  theme(legend.position = "none") + 
+  labs(x = "State", y = "Count") + ggtitle("Number of Breweries per State")
+
+
+```
+
+
+````{r}
+##Address the missing values in each column.
+sum(is.na(breweries))
+
+#As we can see, the breweries data set holds no missing values, thus no need to eliminate any missing values.
+
+sum(is.na(beers))
+
+#The beers dataset has 1072, so we must eliminate noted values.
+
+beers_clean <- beers %>% filter(!is.na(Name)) %>% filter(!is.na(Beer_ID)) %>% 
+  filter(!is.na(ABV)) %>% filter(!is.na(IBU)) %>% 
+  filter(!is.na(Brewery_id)) %>% filter(!is.na(Style)) %>% 
+  filter(!is.na(Ounces))
+
+#Removed 1007 rows due to missing values.
+
+```
+
+
+````{r}
+##Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
+
+#In order to join the two data sets successfully, we will need to find a primary key and a foreign key by which to join by. Let's examine the column names.
+
+colnames(breweries)
+colnames(beers_clean)
+
+#As we can see, Brewery ID would be a good key to join them; however, we must make sure that they have a common spelling. Also, even though 'Name" makes sense for each respective dataset, we will need to change it in order to clarify what the column is indeed naming when joining.
+
+breweries$Brewery = breweries$Name
+breweries$Brewery_id = breweries$Brew_ID
+head(breweries)
+
+#Let's create a new dataframe with the relevant columns from 'breweries' before joining.
+
+breweries_clean <- breweries %>% select(Brewery, City, State, Brewery_id)
+join <- inner_join(breweries_clean, beers_clean, by = "Brewery_id")
+
+#From the joined data frame, let's select the relevant columns.
+
+medABVIBU <- join %>% select(State, ABV, IBU)
+head(medABVIBU)
+
+#Having the relevant columns to work with, lets create a new one with the median ABV of each state and call ot 'medABV'.
+medABV <- medABVIBU %>% group_by(State) %>% mutate(medianABV = median(ABV)*100) %>% select(State, medianABV) %>% arrange(State) %>% distinct(State, medianABV)
+head(medABV)
+#As you can see, there is a row for every beer produced in each state. In order to plot the median correctly, we will need to delete duplicates so that we may only have one row (median) per state.
+
+
+
+##Data set is now ready to plot.
+
+medABV %>% ggplot(aes(x = reorder(State, medianABV), y = medianABV, fill = State, alpha = medianABV)) + 
+  geom_bar(stat = 'identity', fill = "steelblue3") + 
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme_classic() +
+  labs(x = "State", y = "Median ABV") +
+  ggtitle("Median ABV by State")
+
+##We will follow a similar process to derive median IBU by State.
+
+medIBU <- medABVIBU %>% 
+  group_by(State) %>% 
+  mutate(medianIBU = median(IBU)) %>% 
+  select(State, medianIBU) %>% 
+  arrange(State) %>% 
+  distinct(State, medianIBU)
+
+head(medIBU)
+
+#And plot in a similar manner.
+
+medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU, fill = State, alpha = medianIBU)) + 
+  geom_bar(stat = 'identity', fill = "steelblue3") + 
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme_classic() +
+  labs(x = "State", y = "Median IBU") +
+  ggtitle("Median IBU by State")
+
+```
+
+
+````{r}
+##Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
+
+#We will create a new data frame with relevant columns to explor this question.
+maxABVIBU <- join %>% select(Brewery, Name, State, ABV, IBU)
+
+#We need to identify the highest ABV level
+max(maxABVIBU$ABV)
+maxABVIBU %>% filter(ABV == "0.125")
+
+## We can see that the beer with the highest ABV belongs to the state of Kentucky (KY) with an ABV of 12.5. The beer is "London Balling" by Against the Grain Brewery.
+
+#We follow the same process for IBU.
+max(maxABVIBU$IBU)
+maxABVIBU %>% filter(IBU == "138")
+
+#The beer with the highest IBU belongs to the state of Oregon (OR) with an IBU of 138. The beer is "Bitter Bitch Imperial IPA" by Astoria Brewing Company.
+```
+
+
+````{r}
+##Comment on the summary statistics and distribution of the ABV variable.
+summary(maxABVIBU$ABV)
+
+
+#Histogram
+maxABVIBU %>% ggplot(aes(x = ABV)) + 
+  geom_histogram(fill = "steelblue3") + 
+  theme_classic() +
+  labs(x = "ABV", y = "") +
+  ggtitle("Distribution of ABV")
+
+#Boxplot
+maxABVIBU %>% ggplot(aes(x = ABV)) + 
+  geom_boxplot(fill = "steelblue3") + 
+  theme_classic() +
+  labs(x = "ABV", y = "") +
+  ggtitle("Distribution of ABV")
+```
+
+
+````{r}
+##Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.  Make your best judgment of a relationship and EXPLAIN your answer.
+
+#As we saw earlier, the distributions of both the IBU and ABV columns were right skewed, it'd be helpful to apply a log transformation before plotting. In the plot, we'd also like to include a linear regression line as well as its corresponding equation to better examine its relationship. 
+
+maxABVIBU %>% ggplot(aes(x = log(IBU), y = log(ABV))) +
+  geom_point(color = "steelblue3") +
+  geom_smooth(method = "lm", color = "grey49") +
+  stat_regline_equation() +
+  theme_classic() +
+  labs(x = "IBU", y = "ABV") +
+  ggtitle("Relationship between IBU and ABV")
+
+##From a visual inspection as well as a simple linear regression model, we can say that there is an apparent significant positive relationship between IBU and ABV (p-value = <.0001), with a 0.2-unit increase in ABV for every unit increase in IBU.
+
+
+```
+ 
