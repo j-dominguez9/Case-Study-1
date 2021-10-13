@@ -1,0 +1,396 @@
+Brewery,City,State,Brewery_id,Name,Beer_ID,ABV,IBU,Style,Ounces
+NorthGate Brewing,Minneapolis,MN,1,Get Together,2692,0.045,50,American IPA,16
+Against the Grain Brewery,Louisville,KY,2,Citra Ass Down,2686,0.08,68,American Double / Imperial IPA,16
+Against the Grain Brewery,Louisville,KY,2,Rico Sauvin,2678,0.076,68,American Double / Imperial IPA,16
+Against the Grain Brewery,Louisville,KY,2,Pile of Face,2675,0.06,65,American IPA,16
+Jack's Abby Craft Lagers,Framingham,MA,3,Excess IPL,2671,0.072,80,American India Pale Lager,16
+Jack's Abby Craft Lagers,Framingham,MA,3,Hoponius Union,2670,0.067,65,American India Pale Lager,12
+Jack's Abby Craft Lagers,Framingham,MA,3,Calyptra,2669,0.049,45,American India Pale Lager,12
+Mike Hess Brewing Company,San Diego,CA,4,Habitus (2014),2668,0.08,100,American Double / Imperial IPA,16
+Mike Hess Brewing Company,San Diego,CA,4,Solis,2667,0.075,85,American IPA,16
+Mike Hess Brewing Company,San Diego,CA,4,Habitus,2664,0.08,100,American Double / Imperial IPA,16
+Fort Point Beer Company,San Francisco,CA,5,Villager,2658,0.063,42,American IPA,12
+Petoskey Brewing,Petoskey,MI,12,Mind's Eye PA,1402,0.067,74,American IPA,16
+Blackrocks Brewery,Marquette,MI,13,Nordskye,2634,0.048,47,American IPA,12
+Blackrocks Brewery,Marquette,MI,13,51K IPA,1481,0.07,51,American IPA,12
+Perrin Brewing Company,Comstock Park,MI,14,98 Problems (Cuz A Hop Ain't One),2630,0.065,65,American IPA,12
+Perrin Brewing Company,Comstock Park,MI,14,Grapefruit IPA,2628,0.05,35,American IPA,12
+Witch's Hat Brewing Company,South Lyon,MI,15,Train Hopper,2627,0.058,72,American IPA,12
+Founders Brewing Company,Grand Rapids,MI,16,Centennial IPA,1565,0.072,65,American IPA,12
+Founders Brewing Company,Grand Rapids,MI,16,All Day IPA,1223,0.047,42,American IPA,12
+Flat 12 Bierwerks,Indianapolis,IN,17,Half Cycle IPA,1610,0.06,104,American IPA,16
+Tin Man Brewing Company,Evansville,IN,18,Overlord Imperial IPA,1449,0.085,115,American Double / Imperial IPA,16
+Tin Man Brewing Company,Evansville,IN,18,Alloy,951,0.058,36,American IPA,16
+Bare Hands Brewery,Granger,IN,21,Thai.p.a,2618,0.07,46,American IPA,16
+Four Fathers Brewing,Valparaiso,IN,23,The Gadget,2610,0.064,90,American IPA,16
+Burn 'Em Brewing,Michigan City,IN,25,Hopkick Dropkick,2471,0.099,115,American Double / Imperial IPA,12
+Burn 'Em Brewing,Michigan City,IN,25,3:33 Black IPA,2158,0.072,86,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Fistful Of Hops Red,2001,0.064,75,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Fistful of Hops Orange,2000,0.063,75,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Fistful Of Hops Blue,1999,0.064,75,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Fistful of Hops Green,1996,0.064,75,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Grapefruit Jungle (GFJ),1420,0.075,77,American IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Isis,651,0.091,91,American Double / Imperial IPA,16
+Sun King Brewing Company,Indianapolis,IN,26,Grapefruit Jungle (GFJ) (2011),532,0.075,77,American IPA,16
+Evil Czech Brewery,Mishawaka,IN,27,White Reaper,2432,0.07,61,Belgian IPA,16
+450 North Brewing Company,Columbus,IN,28,Citrafest,2602,0.05,45,American IPA,16
+450 North Brewing Company,Columbus,IN,28,Scarecrow,2219,0.069,65,American IPA,16
+Cedar Creek Brewery,Seven Points,TX,30,Gone A-Rye,2600,0.085,90,American Double / Imperial IPA,16
+Cedar Creek Brewery,Seven Points,TX,30,Dankosaurus,2052,0.068,70,American IPA,16
+SanTan Brewing Company,Chandler,AZ,31,Count Hopula (Vault Series),2063,0.091,99,American Double / Imperial IPA,16
+SanTan Brewing Company,Chandler,AZ,31,Hop Shock IPA,1071,0.07,85,American IPA,12
+SanTan Brewing Company,Chandler,AZ,31,Hop Shock IPA (2010),317,0.07,85,American IPA,12
+Boulevard Brewing Company,Kansas City,MO,32,Heavy Lifting,2596,0.062,80,American IPA,12
+The Dudes' Brewing Company,Torrance,CA,34,Double Trunk,1561,0.099,101,American Double / Imperial IPA,16
+Ballast Point Brewing Company,San Diego,CA,35,Even Keel,2105,0.038,40,American IPA,12
+Ballast Point Brewing Company,San Diego,CA,35,Big Eye India Pale Ale,1400,0.07,75,American IPA,12
+Ballast Point Brewing Company,San Diego,CA,35,Sculpin IPA,1018,0.07,70,American IPA,12
+Avery Brewing Company,Boulder,CO,38,Avery India Pale Ale,107,0.063,69,American IPA,12
+Twisted X Brewing Company,Dripping Springs,TX,39,Chupahopra,2458,0.075,63,American IPA,12
+Big Muddy Brewing,Murphysboro,IL,41,Galaxy IPA,2585,0.075,60,American IPA,16
+Rivertowne Brewing Company,Export,PA,44,Jah Mon,2579,0.05,100,American IPA,12
+Revolution Brewing Company,Chicago,IL,45,Anti-Hero IPA,415,0.065,70,American IPA,12
+Tallgrass Brewing Company,Manhattan,KS,46,Ethos IPA,1017,0.068,110,American IPA,16
+Tallgrass Brewing Company,Manhattan,KS,46,Oasis (2010),104,0.072,93,American Double / Imperial IPA,16
+Tallgrass Brewing Company,Manhattan,KS,46,Tallgrass IPA,101,0.063,60,American IPA,16
+Sixpoint Craft Ales,Brooklyn,NY,47,Bengali,2090,0.065,62,American IPA,24
+Sixpoint Craft Ales,Brooklyn,NY,47,Hi-Res,1696,0.099,111,American Double / Imperial IPA,12
+Sixpoint Craft Ales,Brooklyn,NY,47,Autumnation (2013),1591,0.067,74,American IPA,16
+Sixpoint Craft Ales,Brooklyn,NY,47,Bengali Tiger,1385,0.064,62,American IPA,16
+Sixpoint Craft Ales,Brooklyn,NY,47,Resin,628,0.091,103,American Double / Imperial IPA,12
+Sixpoint Craft Ales,Brooklyn,NY,47,Bengali Tiger (2011),422,0.064,62,American IPA,16
+Firestone Walker Brewing Company,Paso Robles,CA,49,Easy Jack,2569,0.045,47,American IPA,12
+Firestone Walker Brewing Company,Paso Robles,CA,49,Union Jack,2463,0.075,75,American IPA,12
+Flying Mouse Brewery,Troutville,VA,51,Flying Mouse 4,2566,0.07,70,American IPA,12
+Upslope Brewing Company,Boulder,CO,52,Thai Style White IPA,1932,0.065,33,American White IPA,12
+Upslope Brewing Company,Boulder,CO,52,Upslope Imperial India Pale Ale,1315,0.099,90,American Double / Imperial IPA,19.2
+Bent Brewstillery,Roseville,MN,54,Moar,2558,0.044,44,English India Pale Ale (IPA),12
+Destihl Brewery,Bloomington,IL,58,Vertex IPA,2025,0.063,76,American IPA,12
+Destihl Brewery,Bloomington,IL,58,Hoperation Overload,1888,0.096,85,American Double / Imperial IPA,12
+Summit Brewing Company,St. Paul,MN,59,Unchained #18 Hop Silo,2415,0.083,100,American Double / Imperial IPA,16
+Surly Brewing Company,Brooklyn Center,MN,62,Overrated! West Coast Style IPA,1112,0.073,69,American IPA,16
+Surly Brewing Company,Brooklyn Center,MN,62,WET,329,0.075,90,American IPA,16
+Surly Brewing Company,Brooklyn Center,MN,62,Abrasive Ale,15,0.097,120,American Double / Imperial IPA,16
+Surly Brewing Company,Brooklyn Center,MN,62,Furious,12,0.062,99,American IPA,16
+Against The Grain Brewery,Louisville,KY,63,Citra Ass Down,2540,0.082,68,American IPA,16
+Freetail Brewing Company,San Antonio,TX,67,Soul Doubt,2521,0.059,70,American IPA,12
+3 Daughters Brewing,St Petersburg,FL,68,Bimini Twist,2519,0.07,82,American IPA,12
+Red Shedman Farm Brewery and Hop...,Mt. Airy,MD,69,Pump House IPA,2515,0.055,45,American IPA,16
+Appalachian Mountain Brewery,Boone,NC,70,Long Leaf,2511,0.071,75,American IPA,16
+Union Craft Brewing,Baltimore,MD,72,Double Duckpin,2507,0.085,90,American Double / Imperial IPA,12
+Atwater Brewery,Detroit,MI,73,Hop A-Peel,2503,0.075,115,American Double / Imperial IPA,16
+Atwater Brewery,Detroit,MI,73,Grand Circus IPA,528,0.05,62,American IPA,12
+Two Brothers Brewing Company,Warrenville,IL,75,Wobble,2497,0.063,69,American IPA,16
+Bent Paddle Brewing Company,Duluth,MN,76,Harness the Winter,2410,0.072,87,American IPA,12
+Bent Paddle Brewing Company,Duluth,MN,76,Bent Hop Golden IPA,1901,0.062,68,American IPA,12
+Speakasy Ales & Lagers,San Francisco,CA,79,Baby Daddy Session IPA,2486,0.047,35,American IPA,12
+Hopworks Urban Brewery,Portland,OR,81,Hopworks IPA,2199,0.066,75,American IPA,16
+Hopworks Urban Brewery,Portland,OR,81,Pigwar White India Pale Ale,1398,0.06,60,American White IPA,16
+Hopworks Urban Brewery,Portland,OR,81,Hopworks IPA (2012),653,0.066,75,American IPA,16
+New Belgium Brewing Company,Fort Collins,CO,83,Slow Ride,2475,0.045,40,American IPA,12
+New Belgium Brewing Company,Fort Collins,CO,83,Ranger IPA,2230,0.065,70,American IPA,12
+New Belgium Brewing Company,Fort Collins,CO,83,Ranger IPA,564,0.065,70,American IPA,16
+New Belgium Brewing Company,Fort Collins,CO,83,Ranger IPA (Current),115,0.065,70,American IPA,12
+Sierra Nevada Brewing Company,Chico,CA,84,Torpedo,2239,0.072,65,American IPA,12
+Sierra Nevada Brewing Company,Chico,CA,84,Torpedo,426,0.072,65,American IPA,16
+Grey Sail Brewing Company,Westerly,RI,87,Captain's Daughter,2044,0.085,69,American Double / Imperial IPA,12
+Kirkwood Station Brewing Company,Kirkwood,MO,88,India Pale Ale,2460,0.063,65,American IPA,16
+Madtree Brewing Company,Cincinnati,OH,92,Psychopathy,1126,0.069,70,American IPA,12
+Rhinegeist Brewery,Cincinnati,OH,94,Truth,1852,0.072,75,American IPA,12
+Warped Wing Brewing Company,Dayton,OH,95,Self Starter,2450,0.052,67,American IPA,16
+Tröegs Brewing Company,Hershey,PA,98,Perpetual IPA,1509,0.075,85,American IPA,12
+Mission Brewery,San Diego,CA,99,Mission IPA,2441,0.068,66,American IPA,32
+Mission Brewery,San Diego,CA,99,Shipwrecked Double IPA,1459,0.092,75,American Double / Imperial IPA,32
+Christian Moerlein Brewing Company,Cincinnati,OH,100,Bay of Bengal Double IPA (2014),2440,0.089,126,American Double / Imperial IPA,12
+Coastal Extreme Brewing Company,Newport,RI,102,Newport Storm IPA,2437,0.065,75,American IPA,12
+King Street Brewing Company,Anchorage,AK,103,King Street IPA,1667,0.06,70,American IPA,12
+Beer Works Brewery,Lowell,MA,104,Back Bay IPA,2420,0.068,85,American IPA,12
+Four String Brewing Company,Columbus,OH,106,Big Star White IPA,2424,0.07,70,American White IPA,12
+Glabrous Brewing Company,Pineland,ME,107,Clean Shave IPA,2426,0.067,70,American IPA,12
+Bonfire Brewing Company,Eagle,CO,108,Firestarter India Pale Ale,2422,0.066,72,American IPA,12
+Bonfire Brewing Company,Eagle,CO,108,Farmer Wirtz India Pale Ale,1549,0.07,94,English India Pale Ale (IPA),16
+Bonfire Brewing Company,Eagle,CO,108,Firestarter India Pale Ale,633,0.066,72,American IPA,16
+"Woodstock Inn, Station & Brewery",North Woodstock,NH,110,4000 Footer IPA,2417,0.065,82,American IPA,12
+Renegade Brewing Company,Denver,CO,111,Redacted Rye IPA,1176,0.07,100,American IPA,16
+Renegade Brewing Company,Denver,CO,111,Elevation Triple India Pale Ale,1006,0.099,100,American Double / Imperial IPA,12
+Renegade Brewing Company,Denver,CO,111,Ryeteous Rye IPA (2012),636,0.07,100,American IPA,16
+Black Market Brewing Company,Temecula,CA,113,Blackmarket Rye IPA,1898,0.075,35,American IPA,12
+Smartmouth Brewing Company,Norfolk,VA,116,Rule G IPA,2407,0.07,88,American IPA,12
+Base Camp Brewing Co.,Portland,OR,117,Ultra Gnar Gnar IPA,2323,0.067,60,American IPA,12
+Alameda Brewing,Portland,OR,118,Yellow Wolf Imperial IPA,2401,0.082,103,American Double / Imperial IPA,12
+Southern Star Brewing Company,Conroe,TX,119,Red Cockaded Ale,1728,0.085,110,American Double / Imperial IPA,12
+Southern Star Brewing Company,Conroe,TX,119,Valkyrie Double IPA,1497,0.092,100,American Double / Imperial IPA,12
+Southern Star Brewing Company,Conroe,TX,119,Red Cockaded Ale (2013),1011,0.085,110,American Double / Imperial IPA,12
+Southern Star Brewing Company,Conroe,TX,119,PRO-AM (2012) (2012),853,0.099,100,American Double / Imperial IPA,12
+Steamworks Brewing Company,Durango,CO,120,Third Eye Pale Ale,90,0.065,65,American IPA,12
+Cheboygan Brewing Company,Cheboygan,MI,122,IPA #11,2380,0.057,58,American IPA,16
+Griffin Claw Brewing Company,Birmingham,MI,125,Norm's Gateway IPA,2007,0.04,55,American IPA,12
+Karbach Brewing Company,Houston,TX,126,Rodeo Clown Double IPA,666,0.095,85,American Double / Imperial IPA,12
+Karbach Brewing Company,Houston,TX,126,Hopadillo India Pale Ale,463,0.066,70,American IPA,12
+Uncle Billy's Brewery and Smokeh...,Austin,TX,127,The Green Room,2372,0.06,75,American IPA,16
+Deep Ellum Brewing Company,Dallas,TX,128,Dream Crusher Double IPA,2166,0.085,100,American Double / Imperial IPA,12
+Deep Ellum Brewing Company,Dallas,TX,128,Deep Ellum IPA,943,0.07,70,American IPA,12
+Stevens Point Brewery,Stevens Point,WI,132,Beyond The Pale IPA,2150,0.063,64,American IPA,12
+Weston Brewing Company,Weston,MO,133,O’Malley’s IPA,2343,0.075,89,American IPA,12
+Southern Prohibition Brewing Com...,Hattiesburg,MS,134,2014 IPA Cicada Series,2362,0.075,72,American IPA,16
+Southern Prohibition Brewing Com...,Hattiesburg,MS,134,Sinister Minister Black IPA,2346,0.077,65,American IPA,16
+Cigar City Brewing Company,Tampa,FL,142,Operation Homefront,2014,0.062,65,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Hopped on the High Seas (Hop #529),1726,0.07,60,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Hopped on the High Seas (Calypso),1725,0.07,60,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Dry-Hopped On The High Seas Caribbean-Style IPA,1694,0.07,60,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Hopped on the High Seas (Citra),1693,0.07,60,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Hopped on the High Seas (Ahtanum),1692,0.07,60,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Humidor Series India Pale Ale,1142,0.075,70,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Jai Alai IPA Aged on White Oak,1141,0.075,70,American IPA,12
+Cigar City Brewing Company,Tampa,FL,142,Jai Alai IPA,546,0.075,70,American IPA,12
+Oakshire Brewing,Eugene,OR,151,Watershed IPA,2331,0.067,70,American IPA,12
+Oakshire Brewing,Eugene,OR,151,Watershed IPA (2013),999,0.067,70,American IPA,12
+Tin Roof Brewing Company,Baton Rouge,LA,153,Juke Joint IPA,1755,0.07,60,American IPA,12
+Three Creeks Brewing,Sisters,OR,154,Hoodoo Voodoo IPA,2316,0.062,82,American IPA,12
+Caldera Brewing Company,Ashland,OR,156,Hopportunity Knocks IPA,2315,0.068,100,American IPA,12
+Caldera Brewing Company,Ashland,OR,156,Caldera IPA (2009),793,0.061,94,American IPA,12
+Caldera Brewing Company,Ashland,OR,156,Caldera IPA (2007),792,0.061,94,American IPA,12
+Caldera Brewing Company,Ashland,OR,156,Caldera IPA,36,0.061,94,American IPA,12
+Phoenix Ale Brewery,Phoenix,AZ,158,Camelback,2312,0.061,60,American IPA,12
+Uinta Brewing Company,Salt Lake City,UT,160,Trader Session IPA,1925,0.04,42,American IPA,12
+Uinta Brewing Company,Salt Lake City,UT,160,Hop Nosh IPA,1723,0.073,83,American IPA,12
+Uinta Brewing Company,Salt Lake City,UT,160,Hop Notch IPA (2013),1089,0.073,82,American IPA,12
+Four Peaks Brewing Company,Tempe,AZ,161,Hop Knot IPA,358,0.067,47,American IPA,12
+Sly Fox Brewing Company,Phoenixville,PA,164,Homefront IPA,2305,0.06,70,American IPA,12
+Great Crescent Brewery,Aurora,IN,166,Great Crescent IPA,1701,0.062,60,American IPA,16
+Great Crescent Brewery,Aurora,IN,166,Great Crescent IPA (2011),436,0.062,60,American IPA,16
+Oskar Blues Brewery,Longmont,CO,167,Pinner Throwback IPA,2302,0.049,35,American IPA,12
+Oskar Blues Brewery,Longmont,CO,167,Gordon Imperial Red (2010),806,0.087,85,American Double / Imperial IPA,12
+Oskar Blues Brewery,Longmont,CO,167,G'KNIGHT (16 oz.),726,0.087,85,American Double / Imperial IPA,16
+Oskar Blues Brewery,Longmont,CO,167,One Hit Wonder,391,0.09,60,American Double / Imperial IPA,12
+Oskar Blues Brewery,Longmont,CO,167,G'KNIGHT (12 oz.),388,0.087,85,American Double / Imperial IPA,12
+Oskar Blues Brewery,Longmont,CO,167,GUBNA Imperial IPA,6,0.099,100,American Double / Imperial IPA,12
+Oskar Blues Brewery,Longmont,CO,167,Gordon Ale (2009),4,0.087,85,American Double / Imperial IPA,12
+Everybody's Brewing,White Salmon,WA,171,Little Sister India Style Session Ale,2292,0.043,60,American IPA,12
+Everybody's Brewing,White Salmon,WA,171,Country Boy IPA,1504,0.062,80,American IPA,12
+Anderson Valley Brewing Company,Boonville,CA,172,Hop Ottin' IPA,1327,0.07,80,American IPA,12
+Anderson Valley Brewing Company,Boonville,CA,172,Hop Ottin' IPA (2011),367,0.07,80,American IPA,12
+Fiddlehead Brewing Company,Shelburne,VT,173,Second Fiddle,1929,0.082,80,American Double / Imperial IPA,16
+Frog Level Brewing Company,Waynesville,NC,181,Salamander Slam,2254,0.07,73,American IPA,16
+COOP Ale Works,Oklahoma City,OK,183,F5 IPA,1442,0.068,100,American IPA,16
+Seventh Son Brewing Company,Columbus,OH,184,Golden Ratio IPA,1765,0.07,68,American IPA,16
+Mother's Brewing,Springfield,MO,189,Lil' Helper,2208,0.07,70,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Day Hike Session,2235,0.041,41,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Trailhead ISA,1661,0.048,48,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Evo IPA,1659,0.062,70,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Evolutionary IPA (2012),1173,0.062,70,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Evolutionary IPA (2011),505,0.062,70,American IPA,12
+Two Beers Brewing Company,Seattle,WA,191,Trailhead India Style Session Ale (2011),482,0.048,48,American IPA,12
+Snake River Brewing Company,Jackson,WY,192,Pako’s EyePA,393,0.068,60,American IPA,12
+Capital Brewery,Middleton,WI,193,Ghost Ship White IPA,1954,0.056,55,American IPA,12
+Capital Brewery,Middleton,WI,193,Mutiny IPA,1177,0.062,70,American IPA,12
+Goose Island Brewery Company,Chicago,IL,197,Goose Island India Pale Ale,2198,0.059,55,American IPA,12
+Hop Valley Brewing Company,Springfield,OR,199,Proxima IPA,1543,0.063,70,American IPA,12
+Hop Valley Brewing Company,Springfield,OR,199,Alphadelic IPA,1353,0.065,90,American IPA,12
+Hop Valley Brewing Company,Springfield,OR,199,Alphadelic IPA (2011),499,0.065,90,American IPA,12
+Worthy Brewing Company,Bend,OR,200,Worthy IPA,2194,0.069,69,American IPA,12
+Worthy Brewing Company,Bend,OR,200,Lights Out Vanilla Cream Extra Stout,1513,0.077,30,American Double / Imperial IPA,12
+Worthy Brewing Company,Bend,OR,200,Worthy IPA (2013),1512,0.069,69,American IPA,12
+Upland Brewing Company,Bloomington,IN,203,Campside Session IPA,2190,0.045,50,American IPA,16
+Mehana Brewing Co.,Hilo,HI,204,Tsunami IPA,2186,0.072,75,American IPA,19.2
+Mehana Brewing Co.,Hilo,HI,204,Tsunami IPA,2185,0.072,75,American IPA,12
+People's Brewing Company,Lafayette,IN,206,Mound Builder IPA,2175,0.065,77,American IPA,12
+People's Brewing Company,Lafayette,IN,206,Amazon Princess IPA,2168,0.062,62,American IPA,12
+Fort George Brewery,Astoria,OR,207,Vortex IPA,318,0.074,97,American IPA,16
+Modern Times Beer,San Diego,CA,210,City of the Sun,2159,0.075,85,American IPA,16
+Modern Times Beer,San Diego,CA,210,Booming Rollers,2157,0.068,75,American IPA,16
+Wisconsin Brewing Company,Verona,WI,212,#002 American I.P.A.,2148,0.071,60,American IPA,12
+Wisconsin Brewing Company,Verona,WI,212,#004 Session I.P.A.,2146,0.048,38,American IPA,12
+Buffalo Bayou Brewing Company,Houston,TX,215,More Cowbell,2123,0.09,118,American Double / Imperial IPA,16
+Texian Brewing Co.,Richmond,TX,216,Brutus,2116,0.071,69,English India Pale Ale (IPA),12
+Forgotten Boardwalk,Cherry Hill,NJ,218,1916 Shore Shiver,2110,0.069,65,American IPA,12
+Laughing Dog Brewing Company,Ponderay,ID,219,Laughing Dog IPA,1396,0.064,66,American IPA,12
+Bozeman Brewing Company,Bozeman,MT,220,Bozone HopZone IPA,1289,0.07,80,American IPA,12
+Big Choice Brewing,Broomfield,CO,221,Hemlock Double IPA,1762,0.095,104,American Double / Imperial IPA,12
+Big Storm Brewing Company,Odessa,FL,222,Arcus IPA,2096,0.069,81,American IPA,12
+Carton Brewing Company,Atlantic Highlands,NJ,223,077XX,1940,0.078,80,American Double / Imperial IPA,16
+Carton Brewing Company,Atlantic Highlands,NJ,223,Boat Beer,1439,0.042,35,American IPA,12
+Midnight Sun Brewing Company,Anchorage,AK,224,Pleasure Town,2093,0.063,61,American IPA,12
+Midnight Sun Brewing Company,Anchorage,AK,224,Pleasure Town IPA,1814,0.063,61,American IPA,12
+Midnight Sun Brewing Company,Anchorage,AK,224,Sockeye Red IPA,434,0.057,70,American IPA,12
+Fat Head's Brewery,Middleburg Heights,OH,225,Hop Stalker Fresh Hop IPA,2088,0.07,80,American IPA,16
+DC Brau Brewing Company,Washington,DC,228,On the Wings of Armageddon,851,0.092,115,American Double / Imperial IPA,12
+DC Brau Brewing Company,Washington,DC,228,The Corruption,186,0.065,80,American IPA,12
+Geneva Lake Brewing Company,Lake Geneva,WI,229,No Wake IPA,2077,0.072,50,American IPA,12
+Cape Ann Brewing Company,Gloucester,MA,231,Dead-Eye DIPA,2067,0.09,130,American Double / Imperial IPA,16
+Cape Ann Brewing Company,Gloucester,MA,231,Fisherman's IPA,2066,0.055,64,American IPA,12
+Joseph James Brewing Company,Henderson,NV,234,Hop Box Imperial IPA,468,0.093,90,American Double / Imperial IPA,12
+Harpoon Brewery,Boston,MA,235,The Long Thaw White IPA,1653,0.062,45,American White IPA,12
+Harpoon Brewery,Boston,MA,235,Harpoon IPA,1379,0.059,42,American IPA,12
+Harpoon Brewery,Boston,MA,235,Harpoon IPA (2012),770,0.059,42,American IPA,12
+Harpoon Brewery,Boston,MA,235,Harpoon IPA (2010),126,0.059,42,American IPA,12
+Champion Brewing Company,Charlottesville,VA,237,Missile IPA,1933,0.07,65,American IPA,12
+Wiseacre Brewing Company,Memphis,TN,240,Ananda India Pale Ale,1470,0.062,61,American IPA,12
+Golden Road Brewing,Los Angeles,CA,241,2020 IPA,1777,0.074,74,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Wolf Among Weeds IPA,1698,0.08,70,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Better Weather IPA,1641,0.094,92,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Point the Way IPA,1490,0.059,60,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Heal the Bay IPA,1399,0.068,65,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Point the Way IPA,1296,0.059,60,American IPA,12
+Golden Road Brewing,Los Angeles,CA,241,Burning Bush Smoked IPA,750,0.08,70,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Wolf Among Weeds IPA (2012),749,0.08,70,American IPA,16
+Golden Road Brewing,Los Angeles,CA,241,Point the Way IPA (2012),549,0.059,60,American IPA,16
+Infamous Brewing Company,Austin,TX,243,Infamous IPA,2038,0.07,75,American IPA,12
+Creature Comforts,Athens,GA,248,Tropicalia,2029,0.065,65,American IPA,12
+Half Full Brewery,Stamford,CT,249,Pursuit,2026,0.07,40,American IPA,12
+Barrio Brewing Company,Tucson,AZ,252,Barrio Blanco,2005,0.06,60,American IPA,12
+Santa Cruz Mountain Brewing,Santa Cruz,CA,253,Giant DIPA,2002,0.089,88,American Double / Imperial IPA,16
+Frankenmuth Brewery,Frankenmuth,MI,254,Batch 69 IPA,1556,0.069,69,American IPA,12
+South Austin Brewery,South Austin,TX,258,Texas Pale Ale (TPA),1971,0.055,40,American IPA,16
+Bauhaus Brew Labs,Minneapolis,MN,259,Sky-Five,1965,0.067,70,American IPA,12
+Ska Brewing Company,Durango,CO,265,Modus Hoperandi,1521,0.068,65,American IPA,12
+Ska Brewing Company,Durango,CO,265,Modus Hoperandi,67,0.068,65,American IPA,12
+Tractor Brewing Company,Albuquerque,NM,266,Almanac IPA,1938,0.062,72,American IPA,12
+Long Trail Brewing Company,Bridgewater Corners,VT,269,Long Trail IPA,1926,0.059,42,English India Pale Ale (IPA),12
+The Alchemist,Waterbury,VT,273,Heady Topper,1111,0.08,120,American Double / Imperial IPA,16
+The Alchemist,Waterbury,VT,273,Heady Topper,379,0.08,120,American Double / Imperial IPA,16
+Three Notch'd Brewing Company,Charlottesville,VA,274,40 Mile IPA,1912,0.06,50,American IPA,12
+Otter Creek Brewing,Middlebury,VT,276,Fresh Slice White IPA,1908,0.055,45,American White IPA,12
+Indeed Brewing Company,Minneapolis,MN,278,Let It Ride IPA,1903,0.068,90,American IPA,12
+Berkshire Brewing Company,South Deerfield,MA,279,Lost Sailor IPA,1900,0.055,40,English India Pale Ale (IPA),12
+Headlands Brewing Company,Mill Valley,CA,281,Groupe G,1895,0.076,65,Belgian IPA,16
+Headlands Brewing Company,Mill Valley,CA,281,Hill 88 Double IPA,1893,0.088,77,American Double / Imperial IPA,16
+Bolero Snort Brewery,Ridgefield Park,NJ,282,Longhop IPA,1891,0.042,30,American IPA,16
+Defiance Brewing Company,Hays,KS,284,Thrasher Session India Pale Ale,1886,0.045,44,American IPA,12
+Milwaukee Brewing Company,Milwaukee,WI,285,Hop Freak,1884,0.087,80,American Double / Imperial IPA,16
+Milwaukee Brewing Company,Milwaukee,WI,285,Hop Happy,1080,0.075,51,American IPA,16
+Four Corners Brewing Company,Dallas,TX,288,El Chingon IPA,1874,0.076,73,American IPA,12
+Saint Archer Brewery,San Diego,CA,289,Saint Archer IPA,1867,0.068,66,American IPA,12
+Hale's Ales,Seattle,WA,291,Supergoose IPA,1857,0.069,67,American IPA,12
+Tommyknocker Brewery,Idaho Springs,CO,292,IPA & a Half,1856,0.073,87,American IPA,12
+Baxter Brewing Company,Lewiston,ME,293,Stowaway IPA,182,0.069,69,American IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Wachusett Light IPA,1846,0.04,37,American IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Green Monsta IPA,1845,0.06,55,American IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Wachusett IPA,1844,0.056,50,American IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Larry Imperial IPA,1418,0.085,85,American Double / Imperial IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Wachusett Light IPA (2013),1029,0.04,37,American IPA,12
+Wachusett Brewing Company,Westminster,MA,296,Green Monsta IPA,618,0.06,55,American IPA,12
+Hop Farm Brewing Company,Pittsburgh,PA,298,Hop Farm IPA,1833,0.058,45,American IPA,12
+Liquid Hero Brewery,York,PA,299,Irregardless IPA,1686,0.065,75,American IPA,12
+Matt Brewing Company,Utica,NY,300,Our Legacy IPA,1831,0.065,60,American IPA,12
+Matt Brewing Company,Utica,NY,300,Our Legacy IPA,1135,0.065,60,American IPA,16
+Boston Beer Company,Boston,MA,301,Rebel IPA,1629,0.065,45,American IPA,16
+Utah Brewers Cooperative,Salt Lake City,UT,303,Squatters Hop Rising Double IPA,1825,0.09,75,American Double / Imperial IPA,12
+Utah Brewers Cooperative,Salt Lake City,UT,303,Squatters Hop Rising Double IPA (2014),1680,0.09,75,American Double / Imperial IPA,12
+Blue Hills Brewery,Canton,MA,305,Quarter Mile Double IPA,1812,0.08,80,American Double / Imperial IPA,12
+Beach Brewing Company,Virginia Beach,VA,307,Hoptopus Double IPA,1806,0.088,108,American Double / Imperial IPA,16
+Payette Brewing Company,Garden City,ID,308,Outlaw IPA,1048,0.062,65,American IPA,12
+Brew Bus Brewing,Tampa,FL,309,Last Stop IPA,1801,0.072,60,American IPA,12
+Sockeye Brewing Company,Boise,ID,310,Dagger Falls IPA,1596,0.063,100,American IPA,12
+Sockeye Brewing Company,Boise,ID,310,Dagger Falls IPA,1595,0.063,100,American IPA,12
+Sockeye Brewing Company,Boise,ID,310,Dagger Falls IPA,879,0.063,100,American IPA,12
+Dirty Bucket Brewing Company,Woodinville,WA,312,Filthy Hoppin' IPA,1795,0.065,72,American IPA,16
+Slanted Rock Brewing Company,Meridian,ID,314,Initial Point India Pale Ale,1609,0.071,92,American IPA,12
+Piney River Brewing Company,Bucryus,MO,315,Missouri Mule India Pale Ale,479,0.07,70,American IPA,16
+Claremont Craft Ales,Claremont,CA,321,Jacaranada Rye IPA,1772,0.067,60,American IPA,16
+Rivertown Brewing Company,Lockland,OH,322,Lil SIPA,1771,0.05,55,American IPA,16
+Voodoo Brewery,Meadville,PA,323,Good Vibes IPA,1603,0.073,85,American IPA,12
+Pisgah Brewing Company,Black Mountain,NC,325,GreyBeard™ IPA,1760,0.069,51,American IPA,12
+The Just Beer Project,Burlington,VT,329,Just IPA,1749,0.046,45,American IPA,12
+La Cumbre Brewing Company,Albuquerque,NM,333,Elevated IPA,664,0.072,100,American IPA,16
+Fargo Brewing Company,Fargo,ND,336,Wood Chipper India Pale Ale,1434,0.067,70,American IPA,12
+Big Sky Brewing Company,Missoula,MT,337,Big Sky IPA,1714,0.062,65,American IPA,12
+Big Sky Brewing Company,Missoula,MT,337,Big Sky IPA (2012),579,0.062,65,American IPA,12
+Nebraska Brewing Company,Papillion,NE,338,Nebraska India Pale Ale,1148,0.065,65,American IPA,12
+Wormtown Brewery,Worcester,MA,340,Be Hoppy IPA,1697,0.065,69,American IPA,16
+Due South Brewing Company,Boynton Beach,FL,341,Category 3 IPA,1685,0.061,64,American IPA,12
+KelSo Beer Company,Brooklyn,NY,343,KelSo India Pale Ale,1572,0.06,64,American IPA,12
+Hardywood Park Craft Brewery,Richmond,VA,344,The Great Return,1677,0.075,70,American IPA,16
+Wolf Hills Brewing Company,Abingdon,VA,345,Troopers Alley IPA,1676,0.059,135,American IPA,12
+Lavery Brewing Company,Erie,PA,346,Madra Allta,1675,0.064,95,American IPA,12
+Lavery Brewing Company,Erie,PA,346,Duluchan India Pale Ale,1249,0.056,70,American IPA,12
+Manzanita Brewing Company,Santee,CA,347,Chaotic Double IPA,1674,0.099,93,American Double / Imperial IPA,12
+Manzanita Brewing Company,Santee,CA,347,Manzanita IPA,1673,0.08,88,American IPA,12
+Central Coast Brewing Company,San Luis Obispo,CA,351,Lucky Day IPA,1648,0.072,85,American IPA,16
+Central Coast Brewing Company,San Luis Obispo,CA,351,Terrace Hill Double IPA,1647,0.095,99,American Double / Imperial IPA,16
+Westfield River Brewing Company,Westfield,MA,352,Charlie in the Rye,1550,0.058,55,American IPA,12
+Pikes Peak Brewing Company,Monument,CO,356,Elephant Rock IPA,1384,0.07,75,American IPA,12
+Manayunk Brewing Company,Philadelphia,PA,357,Dreamin' Double IPA,1334,0.085,85,American Double / Imperial IPA,12
+NoDa Brewing Company,Charlotte,NC,360,Hop Drop 'N Roll IPA,1621,0.072,80,American IPA,16
+Wild Onion Brewing Company,Lake Barrington,IL,362,Hop Slayer Double IPA,1619,0.082,100,American Double / Imperial IPA,12
+Wild Onion Brewing Company,Lake Barrington,IL,362,Hop Slayer Double IPA (2011),740,0.082,100,American Double / Imperial IPA,12
+Wild Onion Brewing Company,Lake Barrington,IL,362,Hop Slayer Double IPA (2011),430,0.082,100,American Double / Imperial IPA,12
+Great River Brewery,Davenport,IA,366,Big Cock IPA,540,0.07,70,American IPA,16
+21st Amendment Brewery,San Francisco,CA,369,21st Amendment IPA (2006),799,0.07,70,American IPA,12
+21st Amendment Brewery,San Francisco,CA,369,Brew Free! or Die IPA (2008),797,0.07,70,American IPA,12
+21st Amendment Brewery,San Francisco,CA,369,Brew Free! or Die IPA (2009),796,0.07,70,American IPA,12
+21st Amendment Brewery,San Francisco,CA,369,Hop Crisis,432,0.097,94,American Double / Imperial IPA,12
+21st Amendment Brewery,San Francisco,CA,369,Brew Free! or Die IPA,10,0.07,65,American IPA,12
+Eddyline Brewery & Restaurant,Buena Vista,CO,370,Crank Yanker IPA,1382,0.078,74,American IPA,16
+Eddyline Brewery & Restaurant,Buena Vista,CO,370,Crank Yanker IPA (2011),395,0.078,74,American IPA,16
+Sly Fox Brewing Company,Pottstown,PA,372,Odyssey Imperial IPA,894,0.084,90,American Double / Imperial IPA,12
+Sly Fox Brewing Company,Pottstown,PA,372,113 IPA,24,0.07,113,American IPA,12
+Astoria Brewing Company,Astoria,OR,375,Bitter Bitch Imperial IPA,980,0.082,138,American Double / Imperial IPA,12
+Maui Brewing Company,Lahaina,HI,376,Flyin' HI.P.Hay,435,0.068,68,American IPA,12
+Maui Brewing Company,Lahaina,HI,376,Big Swell IPA,31,0.062,65,American IPA,12
+RoughTail Brewing Company,Midwest City,OK,377,RoughTail IPA,1576,0.07,80,American IPA,16
+Starr Hill Brewery,Crozet,VA,384,Northern Lights India Pale Ale,1205,0.065,52,American IPA,16
+Starr Hill Brewery,Crozet,VA,384,Northern Lights India Pale Ale,368,0.065,52,American IPA,12
+Westbrook Brewing Company,Mt. Pleasant,SC,385,Westbrook IPA,575,0.068,65,American IPA,12
+Shipyard Brewing Company,Portland,ME,386,Monkey Fist IPA,1539,0.069,65,American IPA,12
+Natian Brewery,Portland,OR,388,Old Grogham Imperial India Pale Ale,1265,0.085,86,American Double / Imperial IPA,16
+Natian Brewery,Portland,OR,388,Old Grogham Imperial India Pale Ale (2012),747,0.085,86,American Double / Imperial IPA,16
+Oskar Blues Brewery (North Carol...,Brevard,NC,390,G'KNIGHT,1533,0.087,85,American Double / Imperial IPA,12
+Oskar Blues Brewery (North Carol...,Brevard,NC,390,Deviant Dale's IPA,1328,0.08,85,American Double / Imperial IPA,16
+Breckenridge Brewery,Denver,CO,392,Lucky U IPA,193,0.062,68,American IPA,12
+Miami Brewing Company,Miami,FL,394,Miami Vice IPA,1506,0.071,62,American IPA,12
+Amnesia Brewing Company,Washougal,WA,402,Desolation IPA,837,0.062,43,American IPA,16
+Fate Brewing Company,Boulder,CO,406,Moirai India Pale Ale,1451,0.07,70,American IPA,16
+New England Brewing Company,Woodbridge,CT,411,Gandhi-Bot Double IPA (12 oz.),320,0.088,85,American Double / Imperial IPA,12
+New England Brewing Company,Woodbridge,CT,411,Gandhi-Bot Double IPA (16 oz.) (2010),42,0.088,85,American Double / Imperial IPA,16
+Straight to Ale,Huntsville,AL,413,Monkeynaut IPA,637,0.072,70,American IPA,12
+Hess Brewing Company,San Diego,CA,424,Habitus IPA,1346,0.08,86,American IPA,16
+Wynkoop Brewing Company,Denver,CO,425,Belgorado,928,0.067,45,Belgian IPA,12
+Schlafly Brewing Company,Saint Louis,MO,429,Schlafly IPA,1078,0.045,30,American IPA,12
+Asher Brewing Company,Boulder,CO,430,Green Bullet Organic India Pale Ale,1322,0.07,45,American IPA,16
+Lost Rhino Brewing Company,Ashburn,VA,431,Face Plant IPA,1309,0.062,65,American IPA,12
+Seabright Brewery,Santa Cruz,CA,433,Blur India Pale Ale,1302,0.074,60,American IPA,12
+Southern Oregon Brewing Company,Medford,OR,437,Nice Rack IPA,1282,0.055,65,American IPA,16
+Brooklyn Brewery,Brooklyn,NY,438,East India Pale Ale,1279,0.068,47,English India Pale Ale (IPA),16
+Brooklyn Brewery,Brooklyn,NY,438,East India Pale Ale,566,0.068,47,English India Pale Ale (IPA),12
+O'Fallon Brewery,O'Fallon,MO,443,5 Day IPA,1258,0.061,66,American IPA,12
+Big Wood Brewery,Vadnais Heights,MN,445,Bad Axe Imperial IPA,1255,0.098,76,American Double / Imperial IPA,16
+Big Wood Brewery,Vadnais Heights,MN,445,Bark Bite IPA,985,0.066,50,American IPA,16
+Swamp Head Brewery,Gainesville,FL,448,Big Nose,1242,0.073,50,American IPA,12
+TailGate Beer,San Diego,CA,450,Dodgy Knight Imperial IPA,1229,0.08,95,American Double / Imperial IPA,12
+TailGate Beer,San Diego,CA,450,TailGate IPA,663,0.05,44,American IPA,24
+TailGate Beer,San Diego,CA,450,TailGate IPA,662,0.05,44,American IPA,12
+Denali Brewing Company,Talkeetna,AK,454,Twister Creek India Pale Ale,947,0.065,71,American IPA,12
+The Black Tooth Brewing Company,Sheridan,WY,458,Indian Paintbrush IPA,1199,0.07,75,American IPA,12
+Fremont Brewing Company,Seattle,WA,461,Interurban IPA,857,0.065,80,American IPA,12
+Good Life Brewing Company,Bend,OR,465,Descender IPA,1109,0.07,70,American IPA,12
+Red Hare Brewing Company,Marietta,GA,476,Gangway IPA,938,0.062,55,American IPA,12
+Good People Brewing Company,Birmingham,AL,479,Snake Handler Double IPA,312,0.093,103,American Double / Imperial IPA,12
+Good People Brewing Company,Birmingham,AL,479,Good People IPA,309,0.06,64,American IPA,12
+Heavy Seas Beer,Halethorpe,MD,480,Loose Cannon,990,0.072,45,American IPA,12
+7 Seas Brewing Company,Gig Harbor,WA,482,Rude Parrot IPA,972,0.059,75,American IPA,16
+7 Seas Brewing Company,Gig Harbor,WA,482,Ballz Deep Double IPA,47,0.084,82,American Double / Imperial IPA,16
+Confluence Brewing Company,Des Moines,IA,483,Des Moines IPA,970,0.068,75,American IPA,16
+Bale Breaker Brewing Company,Yakima,WA,484,Topcutter India Pale Ale,966,0.068,70,American IPA,12
+Redhook Brewery,Woodinville,WA,488,Long Hammer IPA,945,0.065,44,American IPA,16
+Redhook Brewery,Woodinville,WA,488,Long Hammer IPA,583,0.065,44,American IPA,12
+Blue Point Brewing Company,Patchogue,NY,490,Blue Point White IPA,692,0.06,40,American White IPA,12
+Tampa Bay Brewing Company,Tampa,FL,491,Old Elephant Foot IPA,544,0.07,80,American IPA,16
+Devil's Canyon Brewery,Belmont,CA,492,California Sunshine Rye IPA,730,0.071,85,American IPA,16
+Broken Tooth Brewing Company,Anchorage,AK,494,Fairweather IPA,648,0.061,64,American IPA,12
+Seven Brides Brewery,Silverton,OR,495,Frankenlou's IPA,918,0.07,105,American IPA,16
+Dry Dock Brewing Company,Aurora,CO,497,Hop Abomination,881,0.066,100,American IPA,12
+Oskar Blues Brewery,Lyons,CO,504,Gordon (2005),805,0.092,85,American Double / Imperial IPA,12
+Oskar Blues Brewery,Lyons,CO,504,Gordon Beer (2006),733,0.087,60,American Double / Imperial IPA,12
+Wingman Brewers,Tacoma,WA,510,Ace IPA,762,0.074,83,American IPA,16
+Kettle House Brewing Company,Missoula,MT,511,Double Haul IPA (2009),759,0.065,65,American IPA,16
+Kettle House Brewing Company,Missoula,MT,511,Double Haul IPA (2006),758,0.065,65,American IPA,16
+Kettle House Brewing Company,Missoula,MT,511,Double Haul IPA,86,0.065,65,American IPA,16
+Big River Brewing Company,Chattanooga,TN,520,House Brand IPA,632,0.06,55,American IPA,12
+Twisted Pine Brewing Company,Boulder,CO,521,Hoppy Boy,641,0.062,65,American IPA,16
+Flying Dog Brewery,Frederick,MD,522,Snake Dog IPA,608,0.071,60,American IPA,12
+Aspen Brewing Company,Aspen,CO,524,Independence Pass Ale,596,0.07,67,American IPA,12
+Intuition Ale Works,Jacksonville,FL,528,I-10 IPA,558,0.068,55,American IPA,12
+Asheville Brewing Company,Asheville,NC,529,Shiva IPA,428,0.06,69,American IPA,12
+Abita Brewing Company,Abita Springs,LA,534,Jockamo IPA,516,0.065,52,American IPA,12
+Upstate Brewing Company,Elmira,NY,547,Upstate I.P.W.,381,0.065,70,American IPA,12
