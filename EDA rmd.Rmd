@@ -11,6 +11,8 @@ output:
 ```{r}
 library(tidyverse)
 library(ggpubr)
+library(class)
+library(caret)
 beers <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv")
 breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv")
 
@@ -205,9 +207,37 @@ final_IPAs <- cbind(y, IPAs)
 
 IPA_Ales <- full_join(final_IPAs, final_Ales) %>% filter(!grepl("Lager", Style))
 
+IPA_Ales %>% ggplot(aes(x = IBU, y = ABV, color = Group)) + geom_point() + theme_bw() + ggtitle("Measuring ABV and IBU in IPAs and Ales")
 
 
+confusionMatrix(table(knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 3), IPA_Ales$Group))
 
+set.seed(1)
+iterations = 500
+numks = 50
+
+masterAcc = matrix(nrow = iterations, ncol = numks)
+
+for(j in 1:iterations)
+{
+  
+  for(i in 1:numks)
+  {
+    CM = confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = i)))
+    masterAcc[j,i] = CM$overall[1]
+    
+  }
+  
+}
+
+MeanAcc = colMeans(masterAcc)
+
+plot(seq(1,numks,1),MeanAcc, type = "l")
+
+which.max(MeanAcc)
+max(MeanAcc)
+
+confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 8)))
 
 ```
  
