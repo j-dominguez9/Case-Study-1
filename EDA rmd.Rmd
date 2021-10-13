@@ -197,6 +197,17 @@ sum(grepl("(India | IPA)", join$Style))
 IPAs <- join %>% filter(grepl("(India | IPA)", Style))
 Ales <- join %>% filter(grepl("Ale", Style)) %>% filter(!grepl("(India | IPA)", Style))
 
+x <- data.frame(Group = "Ale", c(1:552)) %>% select(Group)
+final_Ales <- cbind(x, Ales)
+
+y <- data.frame(Group = "IPA", c(1:395)) %>% select(Group)
+final_IPAs <- cbind(y, IPAs)
+
+IPA_Ales <- full_join(final_IPAs, final_Ales) %>% filter(!grepl("Lager", Style))
+
+
+
+
 
 ```
  
