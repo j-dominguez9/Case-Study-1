@@ -262,3 +262,4 @@ model <- naiveBayes(Group~., data = nb2)
 model
 predict(model, data.frame(State = "NH"), type = 'raw')
 head(nb2)
+

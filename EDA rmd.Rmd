@@ -272,7 +272,12 @@ t.test(ABV ~ Group, data = ABVjoin)
 
 t.test(IBU ~ Group, data = IPA_Ales)
 
+##NaiveBayes State, Style (IPA, Ales)
 
+nb2 <- IPA_Ales %>% select(State, Group) %>% mutate(State = as.factor(State))
+model <- naiveBayes(Group~., data = nb2)
+model
+predict(model, data.frame(State = "NH"), type = 'raw')
 
 ```
  
