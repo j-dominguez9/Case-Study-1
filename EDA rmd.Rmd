@@ -13,6 +13,7 @@ library(tidyverse)
 library(ggpubr)
 library(class)
 library(caret)
+library(e1071)
 beers <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv")
 breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv")
 
@@ -238,6 +239,40 @@ which.max(MeanAcc)
 max(MeanAcc)
 
 confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 8)))
+
+#Naive Bayes
+
+nbIPA_Ales <- IPA_Ales %>% select(Group, ABV, IBU)
+naiveBayes(Group~., data = nbIPA_Ales )
+
+
+iterations = 100
+masterAcc = matrix(nrow = iterations)
+splitPerc = .8 #Training / Test split Percentage
+for(j in 1:iterations)
+{
+  trainIndices = sample(1:dim(nbIPA_Ales)[1],round(splitPerc * dim(nbIPA_Ales)[1]))
+  train = nbIPA_Ales[trainIndices,]
+  test = nbIPA_Ales[-trainIndices,]
+  model = naiveBayes(train[,2:3],train$Group)
+  table(test$Group,predict(model,test[,2:3]))
+  CM = confusionMatrix(table(test$Group,predict(model,test[,2:3])))
+  masterAcc[j] = CM$overall[1]
+}
+MeanAcc = colMeans(masterAcc)
+MeanAcc
+
+### t-test
+Ales_ABV <- final_Ales %>% select(ABV, Group)
+IPAs_ABV <- final_IPAs %>% filter(!grepl("Lager", Style)) %>% select(ABV, Group)
+
+ABVjoin <- full_join(Ales_ABV, IPAs_ABV)
+
+t.test(ABV ~ Group, data = ABVjoin)
+
+t.test(IBU ~ Group, data = IPA_Ales)
+
+
 
 ```
  
