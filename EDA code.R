@@ -262,4 +262,13 @@ model <- naiveBayes(Group~., data = nb2)
 model
 predict(model, data.frame(State = "NH"), type = 'raw')
 head(nb2)
+Stylegeo <- join %>% select(Style, City, State)
+here()
+write_csv(Stylegeo, "/Users/joaquindominguez/Dropbox/SMU/Doing Data Science/git/Case-Study-1/Stylegeo.csv")
+
+Stylecount %>% ggplot(aes(x = Style, y = n)) + geom_histogram(stat = 'identity') + coord_polar()
+
+
+
+
 
