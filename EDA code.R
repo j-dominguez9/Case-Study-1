@@ -269,6 +269,9 @@ write_csv(Stylegeo, "/Users/joaquindominguez/Dropbox/SMU/Doing Data Science/git/
 Stylecount %>% ggplot(aes(x = Style, y = n)) + geom_histogram(stat = 'identity') + coord_polar()
 
 
-
-
-
+library(tidyverse)
+df <- join %>% select(Style, City, State)
+head(join)
+model <- naiveBayes(Style~., data = df)
+predict(model, data.frame(State = "CT", City = "Stamford"))
+ 
