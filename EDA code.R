@@ -277,3 +277,5 @@ predict(model, data.frame(State = "CT", City = "Stamford"))
 head(df)
 model <- naiveBayes(City~Style, data = df)
 predict(model, data.frame(Style = "American IPA"))
+
+df1 <- df %>% select(Style, City)

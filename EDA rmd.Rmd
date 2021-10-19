@@ -288,7 +288,9 @@ predict(model, data.frame(State = "AZ", City = "Flagstaff"))
 
 ### NB Find most popular Style by City
 
-model <- naiveBayes(City~Style, data = df)
+model <- naiveBayes(City~Style, data = df1)
+pred <- predict(model, df1$Style)
+confusionMatrix(as.factor(pred), as.factor(df1$City))
 predict(model, data.frame(Style = "American IPA"))
 ```
  
