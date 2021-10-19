@@ -283,11 +283,13 @@ predict(model, data.frame(State = "NH"), type = 'raw')
 ###NB State, City, Style (all)
 
 df <- join %>% select(Style, City, State)
-head(join)
 model <- naiveBayes(Style~., data = df)
 predict(model, data.frame(State = "AZ", City = "Flagstaff"))
 
+### NB Find most popular Style by City
 
+model <- naiveBayes(City~Style, data = df)
+predict(model, data.frame(Style = "American IPA"))
 ```
  
  

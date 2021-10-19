@@ -274,4 +274,6 @@ df <- join %>% select(Style, City, State)
 head(join)
 model <- naiveBayes(Style~., data = df)
 predict(model, data.frame(State = "CT", City = "Stamford"))
- 
+head(df)
+model <- naiveBayes(City~Style, data = df)
+predict(model, data.frame(Style = "American IPA"))
