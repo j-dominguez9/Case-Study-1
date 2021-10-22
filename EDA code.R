@@ -279,3 +279,22 @@ model <- naiveBayes(City~Style, data = df)
 predict(model, data.frame(Style = "American IPA"))
 
 df1 <- df %>% select(Style, City)
+df2 <- df %>% select(Style, State)
+
+statepop <- get_acs(geography = 'state', variables = 	"B01003_001", year = 2019) %>% 
+  cbind(data.frame(State = state.abb[match(statepop$NAME, state.name)])) %>% 
+  mutate(population = estimate) %>% filter(!is.na(State)) %>% select(State, population)
+
+
+head(statepop)
+
+numbystate <- numbystate %>% count(State)
+breweriespercapita <- full_join(numbystate, statepop, by = "State") %>% mutate(bpc = (n/population)*10000) %>% 
+  mutate(State = as.factor(State))
+breweriespercapita %>% ggplot(aes(x = reorder(State, bpc), y = bpc, alpha = bpc, fill = State)) + 
+  geom_bar(stat = 'identity', fill = 'steelblue3') + 
+  coord_flip() +
+  theme(legend.position = "none") +
+  ggtitle("Breweries per Capita by State") +
+  labs(x = "State", y = "Breweries per Capita") + 
+  theme_classic()

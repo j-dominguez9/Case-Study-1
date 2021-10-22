@@ -43,6 +43,23 @@ numbystate %>% ggplot(aes(x = State, y = n, fill = State)) +
   labs(x = "State", y = "Count") + ggtitle("Number of Breweries per State")
 
 
+## A more accurate representation of brewery density is depicted by determining Breweries per Capita
+statepop <- get_acs(geography = 'state', variables = 	"B01003_001", year = 2019) %>% 
+  cbind(data.frame(State = state.abb[match(statepop$NAME, state.name)])) %>% 
+  mutate(population = estimate) %>% filter(!is.na(State)) %>% select(State, population)
+
+breweriespercapita <- full_join(numbystate, statepop, by = "State") %>% mutate(bpc = (n/population)*10000) %>% 
+  mutate(State = as.factor(State))
+
+
+breweriespercapita %>% ggplot(aes(x = reorder(State, bpc), y = bpc, alpha = bpc, fill = State)) + 
+  geom_bar(stat = 'identity', fill = 'steelblue3') + 
+  coord_flip() +
+  theme(legend.position = "none") +
+  ggtitle("Breweries per Capita by State") +
+  labs(x = "State", y = "Breweries per Capita") + 
+  theme_classic()
+
 ```
 
 
@@ -284,13 +301,27 @@ predict(model, data.frame(State = "NH"), type = 'raw')
 
 df <- join %>% select(Style, City, State)
 model <- naiveBayes(Style~., data = df)
-predict(model, data.frame(State = "AZ", City = "Flagstaff"))
+predict(model, data.frame(State = "CO", City = "Buena Vista"))
 
-### NB Find most popular Style by City
+###NB Find most popular Style by State
+model <- naiveBayes(Style~State, data = df2)
+model
+predict(model, data.frame(State = "CO"))
+
+
+### NB Find most popular City for Style
 
 model <- naiveBayes(City~Style, data = df1)
 pred <- predict(model, df1$Style)
 confusionMatrix(as.factor(pred), as.factor(df1$City))
+predict(model, data.frame(Style = "American IPA"))
+
+
+###NB find most popular State for style
+
+model <- naiveBayes(State~Style, data = df2)
+pred <- predict(model, df2$Style)
+confusionMatrix(as.factor(pred), as.factor(df2$State))
 predict(model, data.frame(Style = "American IPA"))
 ```
  
