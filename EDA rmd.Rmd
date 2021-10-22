@@ -27,11 +27,14 @@ numbystate
 numbystate$State <- as.factor(numbystate$State)
 
 #bar graph depicting the number of breweries in each state
-numbystate %>% ggplot(aes(x = reorder(State, n), alpha = n, y = n, fill = State)) + 
-  geom_bar(stat = 'identity', fill = "steelblue3") + 
-  coord_flip() + 
-  theme_classic() + 
+numbystate %>% ggplot(aes(x = reorder(State, n), y = n)) + 
+  geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
+  coord_flip() +
   theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
   labs(x = "Count", y = "State") +
   ggtitle("Number of Breweries per State")
 
@@ -48,17 +51,27 @@ statepop <- get_acs(geography = 'state', variables = 	"B01003_001", year = 2019)
   cbind(data.frame(State = state.abb[match(statepop$NAME, state.name)])) %>% 
   mutate(population = estimate) %>% filter(!is.na(State)) %>% select(State, population)
 
-breweriespercapita <- full_join(numbystate, statepop, by = "State") %>% mutate(bpc = (n/population)*10000) %>% 
+#or alternatively (if without census API access)
+
+statepop <- read_csv("https://raw.githubusercontent.com/j-dominguez9/Case-Study-1/main/statepop.csv")
+
+#Join census data with previous table(numbystate)
+breweriespercapita <- full_join(numbystate, statepop, by = "State") %>% 
+  mutate(bpc = (n/population)*10000) %>% 
   mutate(State = as.factor(State))
 
-
-breweriespercapita %>% ggplot(aes(x = reorder(State, bpc), y = bpc, alpha = bpc, fill = State)) + 
-  geom_bar(stat = 'identity', fill = 'steelblue3') + 
+#Plot 
+breweriespercapita %>% filter(!is.na(population)) %>% filter(!State == "SD") %>% 
+  ggplot(aes(x = reorder(State, bpc), y = bpc)) + 
+  geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
   coord_flip() +
   theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 7, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
   ggtitle("Breweries per Capita by State") +
-  labs(x = "State", y = "Breweries per Capita") + 
-  theme_classic()
+  labs(x = "State", y = "Breweries per Capita (*10000)")
 
 ```
 
@@ -116,11 +129,14 @@ head(medABV)
 
 ##Data set is now ready to plot.
 
-medABV %>% ggplot(aes(x = reorder(State, medianABV), y = medianABV, fill = State, alpha = medianABV)) + 
-  geom_bar(stat = 'identity', fill = "steelblue3") + 
+medABV %>% ggplot(aes(x = reorder(State, medianABV), y = medianABV)) + 
+geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
   coord_flip() +
   theme(legend.position = "none") +
-  theme_classic() +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
   labs(x = "State", y = "Median ABV") +
   ggtitle("Median ABV by State")
 
@@ -137,11 +153,14 @@ head(medIBU)
 
 #And plot in a similar manner.
 
-medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU, fill = State, alpha = medianIBU)) + 
-  geom_bar(stat = 'identity', fill = "steelblue3") + 
+medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU)) + 
+ geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
   coord_flip() +
   theme(legend.position = "none") +
-  theme_classic() +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
   labs(x = "State", y = "Median IBU") +
   ggtitle("Median IBU by State")
 
@@ -151,7 +170,7 @@ medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU, fill = State
 ````{r}
 ##Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
 
-#We will create a new data frame with relevant columns to explor this question.
+#We will create a new data frame with relevant columns to explore this question.
 maxABVIBU <- join %>% select(Brewery, Name, State, ABV, IBU)
 
 #We need to identify the highest ABV level
@@ -194,7 +213,7 @@ maxABVIBU %>% ggplot(aes(x = ABV)) +
 
 #As we saw earlier, the distributions of both the IBU and ABV columns were right skewed, it'd be helpful to apply a log transformation before plotting. In the plot, we'd also like to include a linear regression line as well as its corresponding equation to better examine its relationship. 
 
-maxABVIBU %>% ggplot(aes(x = log(IBU), y = log(ABV))) +
+maxABVIBU %>% ggplot(aes(x = log(ABV), y = IBU)) +
   geom_point(color = "steelblue3") +
   geom_smooth(method = "lm", color = "grey49") +
   stat_regline_equation() +
@@ -204,6 +223,9 @@ maxABVIBU %>% ggplot(aes(x = log(IBU), y = log(ABV))) +
 
 ##From a visual inspection as well as a simple linear regression model, we can say that there is an apparent significant positive relationship between IBU and ABV (p-value = <.0001), with a 0.2-unit increase in ABV for every unit increase in IBU.
 
+cor.test(x = log(maxABVIBU$ABV), y = maxABVIBU$IBU)
+
+#This Pearson's correlation provides overwhelming evidence that there is a positive linear relationship (.67) between ABV and IBU (p-val = <.001).
 
 ```
  
