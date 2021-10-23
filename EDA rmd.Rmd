@@ -236,21 +236,28 @@ cor.test(x = log(maxABVIBU$ABV), y = maxABVIBU$IBU)
 sum(grepl("Ale", join$Style))
 sum(grepl("(India | IPA)", join$Style))
 
-IPAs <- join %>% filter(grepl("(India | IPA)", Style))
+IPAs <- join %>% filter(grepl("(India | IPA)", Style)) %>% filter(!grepl("Lager", Style))
 Ales <- join %>% filter(grepl("Ale", Style)) %>% filter(!grepl("(India | IPA)", Style))
 
 x <- data.frame(Group = "Ale", c(1:552)) %>% select(Group)
 final_Ales <- cbind(x, Ales)
 
-y <- data.frame(Group = "IPA", c(1:395)) %>% select(Group)
+y <- data.frame(Group = "IPA", c(1:392)) %>% select(Group)
 final_IPAs <- cbind(y, IPAs)
 
-IPA_Ales <- full_join(final_IPAs, final_Ales) %>% filter(!grepl("Lager", Style))
+IPA_Ales <- full_join(final_IPAs, final_Ales)
 
-IPA_Ales %>% ggplot(aes(x = IBU, y = ABV, color = Group)) + geom_point() + theme_bw() + ggtitle("Measuring ABV and IBU in IPAs and Ales")
+IPA_Ales %>% ggplot(aes(x = ABV, y = IBU, color = Group)) + 
+  geom_point() + 
+  scale_x_continuous(labels = scales::percent) +
+  theme_bw() + 
+  ggtitle("Measuring ABV and IBU in IPAs and Ales")
 
+## k-NN model. We first run a simple model to determine the accuracy of the model with k = 3.
 
 confusionMatrix(table(knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 3), IPA_Ales$Group))
+
+##We must establish the optimal number for k, with regards to accuracy.
 
 set.seed(1)
 iterations = 500
@@ -278,6 +285,10 @@ which.max(MeanAcc)
 max(MeanAcc)
 
 confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 8)))
+
+#t-test
+
+t.test(IBU ~ Group, data = IPA_Ales, var.equal = FALSE)
 
 #Naive Bayes
 
@@ -319,7 +330,7 @@ model
 predict(model, data.frame(State = "NH"), type = 'raw')
 
 
-###NB State, City, Style (all)
+###NB State, City, Style (all). Find most popular Style by City
 
 df <- join %>% select(Style, City, State)
 model <- naiveBayes(Style~., data = df)
@@ -333,6 +344,7 @@ predict(model, data.frame(State = "CO"))
 
 ### NB Find most popular City for Style
 
+df1 <- df %>% select(Style, City)
 model <- naiveBayes(City~Style, data = df1)
 pred <- predict(model, df1$Style)
 confusionMatrix(as.factor(pred), as.factor(df1$City))
