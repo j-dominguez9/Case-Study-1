@@ -1,0 +1,431 @@
+---
+title: "Case Study 1"
+author: "Joaquin"
+date: "10/8/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## **Setting up**
+
+### *Loading necessary libraries*
+
+## R Markdown
+```{r load packages and read in data}
+library(tidyverse)
+library(ggpubr)
+library(class)
+library(caret)
+library(e1071)
+library(rvest)
+```
+
+### *reading in the data*
+
+```{r read in data}
+beers <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv")
+breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv")
+```
+
+## Breweries per State
+
+```{r Breweries per state}
+##How many breweries are present in each state?
+#This table outlines the quantity of breweries in each state and will be used as the basis of the following charts.
+numbystate <- data.frame(breweries %>% count(State))
+numbystate
+numbystate$State <- as.factor(numbystate$State)
+
+#bar graph depicting the number of breweries in each state
+numbystate %>% ggplot(aes(x = reorder(State, n), y = n)) + 
+  geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
+  labs(x = "Count", y = "State") +
+  ggtitle("Number of Breweries per State")
+
+#Different chart (polar coordinates) giving a better visualization of relative amount of breweries in each state.
+
+numbystate %>% ggplot(aes(x = State, y = n, fill = State)) + 
+  geom_bar(stat = 'identity') + 
+  coord_polar() + theme_bw() + 
+  theme(legend.position = "none") + 
+  labs(x = "State", y = "Count") + ggtitle("Number of Breweries per State")
+
+
+## A more accurate representation of brewery density is depicted by determining Breweries per Capita. Data was accessed via the US Census Bureau API
+
+statepop <- read_csv("https://raw.githubusercontent.com/j-dominguez9/Case-Study-1/main/Code/Tables/statepop.csv")
+
+#Join census data with previous table(numbystate)
+breweriespercapita <- full_join(numbystate, statepop, by = "State") %>% 
+  mutate(bpc = (n/population)*10000) %>% 
+  mutate(State = as.factor(State))
+
+#Plot 
+breweriespercapita %>% filter(!is.na(population)) %>% filter(!State == "SD") %>% 
+  ggplot(aes(x = reorder(State, bpc), y = bpc)) + 
+  geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 7, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
+  ggtitle("Breweries per Capita by State") +
+  labs(x = "State", y = "Breweries per Capita (*10000)")
+
+```
+### Addressing Missing Values
+
+```{r Missing Values}
+##Address the missing values in each column.
+sum(is.na(breweries))
+
+#As we can see, the breweries data set holds no missing values, thus no need to eliminate any missing values.
+
+sum(is.na(beers))
+
+#The beers dataset has 1072, so we must eliminate noted values.
+
+beers_clean <- beers %>% filter(!is.na(Name)) %>% filter(!is.na(Beer_ID)) %>% 
+  filter(!is.na(ABV)) %>% filter(!is.na(IBU)) %>% 
+  filter(!is.na(Brewery_id)) %>% filter(!is.na(Style)) %>% 
+  filter(!is.na(Ounces))
+
+#Removed 1007 rows due to missing values.
+
+```
+
+
+### Median ABV and IBU
+
+```{r Median ABV and IBU}
+##Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
+
+#In order to join the two data sets successfully, we will need to find a primary key and a foreign key by which to join by. Let's examine the column names.
+
+colnames(breweries)
+colnames(beers_clean)
+
+#As we can see, Brewery ID would be a good key to join them; however, we must make sure that they have a common spelling. Also, even though 'Name" makes sense for each respective dataset, we will need to change it in order to clarify what the column is indeed naming when joining.
+
+breweries$Brewery = breweries$Name
+breweries$Brewery_id = breweries$Brew_ID
+head(breweries)
+
+#Let's create a new dataframe with the relevant columns from 'breweries' before joining.
+
+breweries_clean <- breweries %>% select(Brewery, City, State, Brewery_id)
+join <- inner_join(breweries_clean, beers_clean, by = "Brewery_id")
+head(join)
+tail(join)
+
+#From the joined data frame, let's select the relevant columns.
+
+medABVIBU <- join %>% select(State, ABV, IBU)
+head(medABVIBU)
+
+#Having the relevant columns to work with, lets create a new one with the median ABV of each state and call it 'medABV'.
+medABV <- medABVIBU %>% group_by(State) %>% mutate(medianABV = median(ABV)*100) %>% select(State, medianABV) %>% arrange(State) %>% distinct(State, medianABV)
+head(medABV)
+
+##Data set is now ready to plot.
+
+medABV %>% ggplot(aes(x = reorder(State, medianABV), y = medianABV)) + 
+geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
+  labs(x = "State", y = "Median ABV") +
+  ggtitle("Median ABV by State")
+
+##We will follow a similar process to derive median IBU by State.
+
+medIBU <- medABVIBU %>% 
+  group_by(State) %>% 
+  mutate(medianIBU = median(IBU)) %>% 
+  select(State, medianIBU) %>% 
+  arrange(State) %>% 
+  distinct(State, medianIBU)
+
+head(medIBU)
+
+#And plot in a similar manner.
+
+medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU)) + 
+ geom_segment(aes(xend=State, yend=0), color = 'grey50') + 
+  geom_point(size=2, color="steelblue3") +
+  coord_flip() +
+  theme(legend.position = "none") +
+  theme(axis.text.y = element_text(size = 6, color = "black")) +
+  theme(panel.background = element_rect(fill = "white")) +
+  theme(axis.ticks = element_line(size = .2)) +
+  labs(x = "State", y = "Median IBU") +
+  ggtitle("Median IBU by State")
+
+```
+
+### Max ABV and IBU
+
+```{r Max ABV and IBU}
+##Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
+
+#We will create a new data frame with relevant columns to explore this question.
+maxABVIBU <- join %>% select(Brewery, Name, State, ABV, IBU)
+
+#We need to identify the highest ABV level
+max(maxABVIBU$ABV)
+maxABVIBU %>% filter(ABV == "0.125")
+
+## We can see that the beer with the highest ABV belongs to the state of Kentucky (KY) with an ABV of 12.5. The beer is "London Balling" by Against the Grain Brewery.
+
+#We follow the same process for IBU.
+max(maxABVIBU$IBU)
+maxABVIBU %>% filter(IBU == "138")
+
+#The beer with the highest IBU belongs to the state of Oregon (OR) with an IBU of 138. The beer is "Bitter Bitch Imperial IPA" by Astoria Brewing Company.
+```
+
+### Summary and Distribution of ABV
+
+```{r Summary and Distribution of ABV}
+
+summary(maxABVIBU$ABV)
+
+
+#Histogram
+maxABVIBU %>% ggplot(aes(x = ABV)) + 
+  geom_histogram(fill = "steelblue3") + 
+  theme_classic() +
+  labs(x = "ABV", y = "") +
+  ggtitle("Distribution of ABV")
+
+#Boxplot
+maxABVIBU %>% ggplot(aes(x = ABV)) + 
+  geom_boxplot(fill = "steelblue3") + 
+  theme_classic() +
+  labs(x = "ABV", y = "") +
+  ggtitle("Distribution of ABV")
+
+#Through visual inspection, we can see a right skew distribution in ABV. A log transformation may be appropriate for regression or t-test purposes.
+```
+#### **The ABV variable has a right-skewed distribution, which would imply that more than half of the values fall below the mean 5.99%. We also see that the mean is larger than the median, which implies a right-skewed distribution. However, the summary statistics and histogram show us that the skewness is likely due to the upper outliers in the dataset. This is also apparent when we see the additional boxplot provided.** 
+
+```{r Relationship: ABV and IBU}
+
+#As we saw earlier, the distributions of both the IBU and ABV columns were right skewed, it'd be helpful to apply a log transformation before plotting. In the plot, we'd also like to include a linear regression line as well as its corresponding equation to better examine its relationship. 
+
+maxABVIBU %>% ggplot(aes(x = log(ABV), y = IBU)) +
+  geom_point(color = "steelblue3") +
+  geom_smooth(method = "lm", color = "grey49") +
+  stat_regline_equation() +
+  theme_classic() +
+  labs(x = "IBU", y = "ABV") +
+  ggtitle("Relationship between IBU and ABV")
+
+##From a visual inspection as well as a simple linear regression model, we can say that there is an apparent significant positive relationship between IBU and ABV (p-value = <.0001), with a 0.2-unit increase in ABV for every unit increase in IBU.
+
+cor.test(x = log(maxABVIBU$ABV), y = maxABVIBU$IBU)
+
+#This Pearson's correlation provides overwhelming evidence that there is a positive linear relationship (.67) between ABV and IBU (p-val = <.001).
+
+```
+#### **Based on the generated scatterplot and Pearson's r at 0.67, we know that ABV and IBU have a medium to high positive correlation. This means that higher values of ABV are associated with higher values of IBU and that lower values of ABV are associated with lower values of IBU.**
+
+##### **Please note that, although we observe a strong association between the two variables, we are not making any claims about the direction of the effect.**
+
+### Next, we decide to use a KNN classification model to investigate the relationship between IBU and ABV in IPAs and other types of Ales.
+ 
+```{r KNN IBU and ABV classification}
+
+#first, we create the data frames to be able to create the models.
+
+sum(grepl("Ale", join$Style))
+sum(grepl("(India | IPA)", join$Style))
+
+IPAs <- join %>% filter(grepl("(India | IPA)", Style)) %>% filter(!grepl("Lager", Style))
+Ales <- join %>% filter(grepl("Ale", Style)) %>% filter(!grepl("(India | IPA)", Style))
+
+x <- data.frame(Group = "Ale", c(1:552)) %>% select(Group)
+final_Ales <- cbind(x, Ales)
+
+y <- data.frame(Group = "IPA", c(1:392)) %>% select(Group)
+final_IPAs <- cbind(y, IPAs)
+
+IPA_Ales <- full_join(final_IPAs, final_Ales)
+
+# We plot the data to get visually acquainted and double check the data. All looks well, moving on.
+IPA_Ales %>% ggplot(aes(x = ABV, y = IBU, color = Group)) + 
+  geom_point() + 
+  scale_x_continuous(labels = scales::percent) +
+  theme_bw() + 
+  ggtitle("Measuring ABV and IBU in IPAs and Ales")
+
+```
+```{r KNN cont.}
+# knn model. We first run a simple internal validation model to determine the accuracy of the model with k = 3.
+
+confusionMatrix(table(knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 3), IPA_Ales$Group))
+
+#We must establish the optimal number for k, with regards to accuracy. This runs all the k's from 1-50 five hundred times and plots the averages for each.
+
+set.seed(1)
+iterations = 500
+numks = 50
+
+masterAcc = matrix(nrow = iterations, ncol = numks)
+
+for(j in 1:iterations)
+{
+  
+  for(i in 1:numks)
+  {
+    CM = confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = i)))
+    masterAcc[j,i] = CM$overall[1]
+    
+  }
+  
+}
+
+MeanAcc = colMeans(masterAcc)
+
+plot(seq(1,numks,1),MeanAcc, type = "l")
+
+which.max(MeanAcc)
+max(MeanAcc)
+
+confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 8)))
+```
+
+##### Although we checked accuracy based on multiple iterations, we report on a single run using a specific seed for reproducibility. 
+##### The overall accuracy of our internal KNN classification model was 86.8%. 
+##### Given no information and guessing all classifications to be other Ales, accuracy was 60.28%
+##### The sensitivity, or the model's ability to accurately classify other Ales, was 87.5%. 
+##### The specificity, or the model's ability to accurately classify IPAs, was 85.6%. 
+
+
+
+### Additional insights from exploring the data.
+
+#### We explored the possibility of creating a Naive Bayes model which predicts the preference of a state for IPAs or Ales.
+
+
+```{r Naive-Bayes}
+#Naive Bayes
+nbIPA_Ales <- IPA_Ales %>% select(Group, ABV, IBU)
+naiveBayes(Group~., data = nbIPA_Ales )
+
+
+iterations = 100
+masterAcc = matrix(nrow = iterations)
+splitPerc = .8 #Training / Test split Percentage
+for(j in 1:iterations)
+{
+  trainIndices = sample(1:dim(nbIPA_Ales)[1],round(splitPerc * dim(nbIPA_Ales)[1]))
+  train = nbIPA_Ales[trainIndices,]
+  test = nbIPA_Ales[-trainIndices,]
+  model = naiveBayes(train[,2:3],train$Group)
+  table(test$Group,predict(model,test[,2:3]))
+  CM = confusionMatrix(table(test$Group,predict(model,test[,2:3])))
+  masterAcc[j] = CM$overall[1]
+}
+MeanAcc = colMeans(masterAcc)
+MeanAcc
+
+```
+#### The model was able to predict IPA:Ale classification based on ABV and IBU inputs.
+
+#### Next, we run a simple independent sample Welch's t-test for both ABV and IBU to determine if there's a significant difference between the groups in those metrics.
+ 
+
+```{r t-test}
+### t-test
+Ales_ABV <- final_Ales %>% select(ABV, Group)
+IPAs_ABV <- final_IPAs %>% filter(!grepl("Lager", Style)) %>% select(ABV, Group)
+
+ABVjoin <- full_join(Ales_ABV, IPAs_ABV)
+
+t.test(log(ABV) ~ Group, data = ABVjoin)
+
+t.test(IBU ~ Group, data = IPA_Ales)
+```
+#### In both t-tests the p-values were found to be <.0001, providing overwhelming evidence that the IPA group and the Ales group are not equal to each other in either ABV and IBU.
+
+#### Here, we apply the same logic as the previous NB model.
+
+```{r NB}
+##For this NB model, we are able to predict IPA:Ale preference, by simply including a state as an input.
+
+nb2 <- IPA_Ales %>% select(State, Group) %>% mutate(State = as.factor(State))
+model <- naiveBayes(Group~., data = nb2)
+predict(model, data.frame(State = "NH"), type = 'raw')
+
+
+###For this next NB model, we would like to extend the scope and predict preference of style of beer (all styles) given City and State as input.
+df <- join %>% select(Style, City, State)
+model <- naiveBayes(Style~., data = df)
+predict(model, data.frame(State = "CO", City = "Buena Vista"))
+
+###For this NB model, we do the same as the one above, predicting style, except only using State as input.
+df2 <- df %>% select(Style, State)
+model <- naiveBayes(Style~State, data = df2)
+predict(model, data.frame(State = "CO"))
+
+
+### For this NB model, we would like to predict which city would a particular style of beer be most well received. This could be highly useful for marketing purposes.
+
+df1 <- df %>% select(Style, City)
+model <- naiveBayes(City~Style, data = df1)
+pred <- predict(model, df1$Style)
+CM <- confusionMatrix(as.factor(pred), as.factor(df1$City))
+predict(model, data.frame(Style = "American IPA"))
+
+
+###This last NB similarly uses a Style of beer and predicts the State it would be most popular.
+
+model <- naiveBayes(State~Style, data = df2)
+pred <- predict(model, df2$Style)
+CM <- confusionMatrix(as.factor(pred), as.factor(df2$State))
+predict(model, data.frame(Style = "American IPA"))
+```
+ 
+#### These Naive-Bayes models give us a lot to work with when it comes to marketing research and discovering geographic patterns for the data.
+ 
+
+### We came across a website that was using ratings of beer to create a table for top rated beer per state and decided to clean up and provide a geographic visualization of each respective state's highest-rated beer. Please see tableau visualizations.
+
+```{r Extra}
+
+# Scraping website for Top Rated Beers by State data
+
+content <- read_html("https://vinepair.com/articles/best-highest-rated-beer-every-state/")
+tables <- content %>% html_table(fill = TRUE)
+first_table <- tables[[1]]
+first_table <- first_table[-1,]
+topbeer <- first_table %>% rename(State = X1, Beer = X2)
+topbeer <- topbeer %>% cbind(data.frame(state = state.abb[match(topbeer$State, state.name)]))
+topbeer[is.na(topbeer)] <- "DC"
+topbeer <- topbeer %>% 
+  select(state, Beer) %>% 
+  rename(State = state) %>% 
+  separate(Beer, into = c("Name", "Brewery", "Style"), sep = "\n") %>% 
+  separate(Style, into = c("Style", "ABV"), sep = "([|])")
+
+head(topbeer)
+
+```
+ 
+```{r Tableau, eval=FALSE, include=FALSE}
+#Tableau Workbook URL: https://public.tableau.com/shared/4QFJCDFGZ?:display_count=n&:origin=viz_share_link
+```
+ 
+ 
