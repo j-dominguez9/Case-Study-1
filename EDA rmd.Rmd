@@ -8,7 +8,7 @@ output:
 ---
 
 ## R Markdown
-```{r}
+```{r load packages and read in data}
 library(tidyverse)
 library(ggpubr)
 library(class)
@@ -19,7 +19,7 @@ breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_D
 
 ```
 
-```{r}
+```{r Breweries per state}
 ##How many breweries are present in each state?
 #This table outlines the quantity of breweries in each state and will be used as the basis of the following charts.
 numbystate <- data.frame(breweries %>% count(State))
@@ -72,7 +72,7 @@ breweriespercapita %>% filter(!is.na(population)) %>% filter(!State == "SD") %>%
 ```
 
 
-```{r}
+```{r Missing Values}
 ##Address the missing values in each column.
 sum(is.na(breweries))
 
@@ -92,7 +92,7 @@ beers_clean <- beers %>% filter(!is.na(Name)) %>% filter(!is.na(Beer_ID)) %>%
 ```
 
 
-```{r}
+```{r Median ABV and IBU}
 ##Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
 
 #In order to join the two data sets successfully, we will need to find a primary key and a foreign key by which to join by. Let's examine the column names.
@@ -116,12 +116,9 @@ join <- inner_join(breweries_clean, beers_clean, by = "Brewery_id")
 medABVIBU <- join %>% select(State, ABV, IBU)
 head(medABVIBU)
 
-#Having the relevant columns to work with, lets create a new one with the median ABV of each state and call ot 'medABV'.
+#Having the relevant columns to work with, lets create a new one with the median ABV of each state and call it 'medABV'.
 medABV <- medABVIBU %>% group_by(State) %>% mutate(medianABV = median(ABV)*100) %>% select(State, medianABV) %>% arrange(State) %>% distinct(State, medianABV)
 head(medABV)
-#As you can see, there is a row for every beer produced in each state. In order to plot the median correctly, we will need to delete duplicates so that we may only have one row (median) per state.
-
-
 
 ##Data set is now ready to plot.
 
@@ -163,7 +160,7 @@ medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU)) +
 ```
 
 
-```{r}
+```{r Max ABV and IBU}
 ##Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
 
 #We will create a new data frame with relevant columns to explore this question.
@@ -183,7 +180,7 @@ maxABVIBU %>% filter(IBU == "138")
 ```
 
 
-```{r}
+```{r Summary and Distribution of ABV}
 ##Comment on the summary statistics and distribution of the ABV variable.
 summary(maxABVIBU$ABV)
 
@@ -204,8 +201,7 @@ maxABVIBU %>% ggplot(aes(x = ABV)) +
 ```
 
 
-```{r}
-##Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.  Make your best judgment of a relationship and EXPLAIN your answer.
+```{r Relationship: ABV and IBU}
 
 #As we saw earlier, the distributions of both the IBU and ABV columns were right skewed, it'd be helpful to apply a log transformation before plotting. In the plot, we'd also like to include a linear regression line as well as its corresponding equation to better examine its relationship. 
 
@@ -226,7 +222,7 @@ cor.test(x = log(maxABVIBU$ABV), y = maxABVIBU$IBU)
 ```
  
  
-```{r}
+```{r KNN IBU and ABV classification}
 ##Budweiser would also like to investigate the difference with respect to IBU and ABV between IPAs (India Pale Ales) and other types of Ale (any beer with “Ale” in its name other than IPA).  You decide to use KNN  classification to investigate this relationship.  Provide statistical evidence one way or the other. You can of course assume your audience is comfortable with percentages … KNN is very easy to understand conceptually. 
 
 sum(grepl("Ale", join$Style))
@@ -250,7 +246,7 @@ IPA_Ales %>% ggplot(aes(x = ABV, y = IBU, color = Group)) +
   ggtitle("Measuring ABV and IBU in IPAs and Ales")
 
 ```
-```{r}
+```{r KNN cont.}
 ## k-NN model. We first run a simple model to determine the accuracy of the model with k = 3.
 
 confusionMatrix(table(knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 3), IPA_Ales$Group))
@@ -286,7 +282,7 @@ confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k =
 ```
 
 
-```{r}
+```{r Naive-Bayes}
 #Naive Bayes
 nbIPA_Ales <- IPA_Ales %>% select(Group, ABV, IBU)
 naiveBayes(Group~., data = nbIPA_Ales )
@@ -310,7 +306,7 @@ MeanAcc
 
 ```
  
-```{r}
+```{r t-test, NB}
 
 ### t-test
 Ales_ABV <- final_Ales %>% select(ABV, Group)
