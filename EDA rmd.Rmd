@@ -3,8 +3,8 @@ title: "Case Study 1"
 author: "Joaquin"
 date: "10/8/2021"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ## R Markdown
