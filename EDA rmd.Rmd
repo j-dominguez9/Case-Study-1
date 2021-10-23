@@ -14,6 +14,7 @@ library(ggpubr)
 library(class)
 library(caret)
 library(e1071)
+library(rvest)
 beers <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Beers.csv")
 breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_Doing-Data-Science/Master/Unit%208%20and%209%20Case%20Study%201/Breweries.csv")
 
@@ -351,6 +352,24 @@ model <- naiveBayes(State~Style, data = df2)
 pred <- predict(model, df2$Style)
 CM <- confusionMatrix(as.factor(pred), as.factor(df2$State))
 predict(model, data.frame(Style = "American IPA"))
+```
+ 
+```{r Extra}
+content <- read_html("https://vinepair.com/articles/best-highest-rated-beer-every-state/")
+tables <- content %>% html_table(fill = TRUE)
+first_table <- tables[[1]]
+first_table <- first_table[-1,]
+topbeer <- first_table %>% rename(State = X1, Beer = X2)
+topbeer <- topbeer %>% cbind(data.frame(state = state.abb[match(topbeer$State, state.name)]))
+topbeer[is.na(topbeer)] <- "DC"
+topbeer <- topbeer %>% 
+  select(state, Beer) %>% 
+  rename(State = state) %>% 
+  separate(Beer, into = c("Name", "Brewery", "Style"), sep = "\n") %>% 
+  separate(Style, into = c("Style", "ABV"), sep = "([|])")
+
+head(topbeer)
+
 ```
  
  
