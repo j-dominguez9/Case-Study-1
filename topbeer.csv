@@ -1,52 +1,52 @@
-state,Name,Brewery,Style
-AL,El Gordo,Good People Brewing Company,Stout – Russian Imperial | 13.90%
-AK,Blessed,Anchorage Brewing Company,Stout – American Imperial | 14.00%
-AZ,White Russian Imperial Stout,Sun Up Brewing Co.,Stout – American Imperial | 9.20%
-AR,BDCS,Ozark Beer Co.,Stout – American Imperial | 10.20%
-CA,Pliny The Younger,Russian River Brewing Company,IPA – Imperial | 10.25%
-CO,Medianoche – Coconut,WeldWerks Brewing Co.,Stout – American Imperial | 14.10%
-CT,Fuzzy Baby Ducks,New England Brewing Co.,IPA – New England | 6.20%
-DE,Bourbon Barrel-Aged World Wide Stout,Dogfish Head Craft Brewery,Stout – American Imperial | 18.30%
-DC,On The Wings Of Armageddon,DC Brau Brewing Co.,IPA – Imperial | 9.20%
-FL,Hunahpu’s Imperial Stout – Double Barrel Aged,Cigar City Brewing,Stout – American Imperial | 11.00%
-GA,Mexican Siberius Maximus,The Wrecking Bar Brewpub,Stout – Russian Imperial | 11.00%
-HI,Imperial Coconut Porter,Maui Brewing Co.,Porter – Imperial | 9.40%
-ID,Double Vision Doppelbock,Grand Teton Brewing Co.,Bock – Doppelbock | 8.00%
-IL,Bourbon County Brand Stout,Goose Island Beer Co.,Stout – American Imperial | 14.70%
-IN,Marshmallow Handjee,3 Floyds Brewing Co.,Stout – Russian Imperial | 15.00%
-IA,Kentucky Brunch Brand Stout,Toppling Goliath Brewing Company,Stout – American Imperial | 12.00%
-KS,Old Backus Barleywine,Free State Brewing Co.,Barleywine – American | 10.50%
-KY,70K,Against The Grain Brewery & Smokehouse,Stout – Sweet / Milk | 13.00%
-LA,Ghost In The Machine – Double Dry-Hopped,Parish Brewing Company,IPA – New England | 8.50%
-ME,Dinner,Maine Beer Company,IPA – Imperial | 8.20%
-MD,Double Duckpin,Union Craft Brewing Company,IPA – Imperial | 8.50%
-MA,King Julius,Tree House Brewing Company,IPA – New England | 8.30%
-MI,CBS (Canadian Breakfast Stout),Founders Brewing Company,Stout – American Imperial | 11.30%
-MN,Abrasive Ale,Surly Brewing Company,IPA – Imperial | 9.20%
-MS,Crowd Control,Southern Prohibition Brewing,IPA – New England | 8.00%
-MO,Barrel-Aged Abraxas,Perennial Artisan Ales,Stout – American Imperial | 11.00%
-MT,Ivan The Terrible Imperial Stout – Barrel-Aged,Big Sky Brewing Company,Stout – Russian Imperial | 11.60%
-NE,Melange A Trois – Reserve Series Aged In French Oak Chardonnay Barrels,Nebraska Brewing Company Production Brewery & Tap Room,Strong Ale – Belgian Pale | 11.30%
-NV,Disco Ninja,Revision Brewing Company,IPA – New England | 7.00%
-NH,Hopulization,Stoneface Brewing Co.,IPA – Imperial | 8.90%
-NJ,Sunday Brunch,Kane Brewing Company,Porter – Imperial | 9.20%
-NM,Project Dank,La Cumbre Brewing Co.,IPA – American | 7.50%
-NY,Double Dry Hopped Double Mosaic Dream,Other Half Brewing Company,IPA – New England | 8.50%
-NC,Citraquench’l,Heist Brewery,IPA – New England | 7.10%
-ND,Freak Parade,Drekker Brewing Company,IPA – New England | 8.20%
-OH,Appervation,Jackie O’s Pub & Brewery,Stout – American Imperial | 15.00%
-OK,Bourbon Paradise,Prairie Artisan Ales,Stout – American Imperial | 13.70%
-OR,Nectarine Premiere,de Garde Brewing,Farmhouse Ale – Saison | 7.10%
-PA,Le Roar Grrrz,Bullfrog Brewery,Lambic – Gueuze
-RI,The Chosen One,Tilted Barn Brewery,IPA – New England | 8.50%
-SC,Mexican Cake – Maple Bourbon Barrel-Aged,Westbrook Brewing Co.,Stout – American Imperial | 10.20%
-SD,SoDank IPA,Lost Cabin Beer Co.,IPA – American | 6.80%
-TN,Astronaut Status,Wiseacre Brewing,Stout – American Imperial | 12.20%
-TX,Atrial Rubicite,Jester King Brewery,Wild Ale | 5.80%
-UT,Big Bad Baptista,Epic Brewing Company,Stout – American Imperial | 11.70%
-VT,Heady Topper,The Alchemist,IPA – New England | 8.00%
-VA,Resolute – Coconut,Brothers Craft Brewing,Stout – American Imperial | 13.50%
-WA,Coffee Cinnamon B-Bomb,Fremont Brewing Company,Strong Ale – American | 13.00%
-WV,Halleck Pale Ale,Chestnut Brew Works,Pale Ale – American | 6.00%
-WI,Black Gold,Central Waters Brewing Co.,Stout – American Imperial | 11.00%
-WY,2×4 DIPA,Melvin Brewing / Thai Me Up,IPA – Imperial | 9.90%
+State,Name,Brewery,Style,ABV
+AL,El Gordo,Good People Brewing Company,Stout – Russian Imperial , 13.90%
+AK,Blessed,Anchorage Brewing Company,Stout – American Imperial , 14.00%
+AZ,White Russian Imperial Stout,Sun Up Brewing Co.,Stout – American Imperial , 9.20%
+AR,BDCS,Ozark Beer Co.,Stout – American Imperial , 10.20%
+CA,Pliny The Younger,Russian River Brewing Company,IPA – Imperial , 10.25%
+CO,Medianoche – Coconut,WeldWerks Brewing Co.,Stout – American Imperial , 14.10%
+CT,Fuzzy Baby Ducks,New England Brewing Co.,IPA – New England , 6.20%
+DE,Bourbon Barrel-Aged World Wide Stout,Dogfish Head Craft Brewery,Stout – American Imperial , 18.30%
+DC,On The Wings Of Armageddon,DC Brau Brewing Co.,IPA – Imperial , 9.20%
+FL,Hunahpu’s Imperial Stout – Double Barrel Aged,Cigar City Brewing,Stout – American Imperial , 11.00%
+GA,Mexican Siberius Maximus,The Wrecking Bar Brewpub,Stout – Russian Imperial , 11.00%
+HI,Imperial Coconut Porter,Maui Brewing Co.,Porter – Imperial , 9.40%
+ID,Double Vision Doppelbock,Grand Teton Brewing Co.,Bock – Doppelbock , 8.00%
+IL,Bourbon County Brand Stout,Goose Island Beer Co.,Stout – American Imperial , 14.70%
+IN,Marshmallow Handjee,3 Floyds Brewing Co.,Stout – Russian Imperial , 15.00%
+IA,Kentucky Brunch Brand Stout,Toppling Goliath Brewing Company,Stout – American Imperial , 12.00%
+KS,Old Backus Barleywine,Free State Brewing Co.,Barleywine – American , 10.50%
+KY,70K,Against The Grain Brewery & Smokehouse,Stout – Sweet / Milk , 13.00%
+LA,Ghost In The Machine – Double Dry-Hopped,Parish Brewing Company,IPA – New England , 8.50%
+ME,Dinner,Maine Beer Company,IPA – Imperial , 8.20%
+MD,Double Duckpin,Union Craft Brewing Company,IPA – Imperial , 8.50%
+MA,King Julius,Tree House Brewing Company,IPA – New England , 8.30%
+MI,CBS (Canadian Breakfast Stout),Founders Brewing Company,Stout – American Imperial , 11.30%
+MN,Abrasive Ale,Surly Brewing Company,IPA – Imperial , 9.20%
+MS,Crowd Control,Southern Prohibition Brewing,IPA – New England , 8.00%
+MO,Barrel-Aged Abraxas,Perennial Artisan Ales,Stout – American Imperial , 11.00%
+MT,Ivan The Terrible Imperial Stout – Barrel-Aged,Big Sky Brewing Company,Stout – Russian Imperial , 11.60%
+NE,Melange A Trois – Reserve Series Aged In French Oak Chardonnay Barrels,Nebraska Brewing Company Production Brewery & Tap Room,Strong Ale – Belgian Pale , 11.30%
+NV,Disco Ninja,Revision Brewing Company,IPA – New England , 7.00%
+NH,Hopulization,Stoneface Brewing Co.,IPA – Imperial , 8.90%
+NJ,Sunday Brunch,Kane Brewing Company,Porter – Imperial , 9.20%
+NM,Project Dank,La Cumbre Brewing Co.,IPA – American , 7.50%
+NY,Double Dry Hopped Double Mosaic Dream,Other Half Brewing Company,IPA – New England , 8.50%
+NC,Citraquench’l,Heist Brewery,IPA – New England , 7.10%
+ND,Freak Parade,Drekker Brewing Company,IPA – New England , 8.20%
+OH,Appervation,Jackie O’s Pub & Brewery,Stout – American Imperial , 15.00%
+OK,Bourbon Paradise,Prairie Artisan Ales,Stout – American Imperial , 13.70%
+OR,Nectarine Premiere,de Garde Brewing,Farmhouse Ale – Saison , 7.10%
+PA,Le Roar Grrrz,Bullfrog Brewery,Lambic – Gueuze,NA
+RI,The Chosen One,Tilted Barn Brewery,IPA – New England , 8.50%
+SC,Mexican Cake – Maple Bourbon Barrel-Aged,Westbrook Brewing Co.,Stout – American Imperial , 10.20%
+SD,SoDank IPA,Lost Cabin Beer Co.,IPA – American , 6.80%
+TN,Astronaut Status,Wiseacre Brewing,Stout – American Imperial , 12.20%
+TX,Atrial Rubicite,Jester King Brewery,Wild Ale , 5.80%
+UT,Big Bad Baptista,Epic Brewing Company,Stout – American Imperial , 11.70%
+VT,Heady Topper,The Alchemist,IPA – New England , 8.00%
+VA,Resolute – Coconut,Brothers Craft Brewing,Stout – American Imperial , 13.50%
+WA,Coffee Cinnamon B-Bomb,Fremont Brewing Company,Strong Ale – American , 13.00%
+WV,Halleck Pale Ale,Chestnut Brew Works,Pale Ale – American , 6.00%
+WI,Black Gold,Central Waters Brewing Co.,Stout – American Imperial , 11.00%
+WY,2×4 DIPA,Melvin Brewing / Thai Me Up,IPA – Imperial , 9.90%
