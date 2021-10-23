@@ -3,8 +3,8 @@ title: "Case Study 1"
 author: "Joaquin"
 date: "10/8/2021"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ## R Markdown
@@ -19,7 +19,7 @@ breweries <- read_csv("https://raw.githubusercontent.com/BivinSadler/MSDS_6306_D
 
 ```
 
-````{r}
+```{r}
 ##How many breweries are present in each state?
 #This table outlines the quantity of breweries in each state and will be used as the basis of the following charts.
 numbystate <- data.frame(breweries %>% count(State))
@@ -39,6 +39,7 @@ numbystate %>% ggplot(aes(x = reorder(State, n), y = n)) +
   ggtitle("Number of Breweries per State")
 
 #Different chart (polar coordinates) giving a better visualization of relative amount of breweries in each state.
+
 numbystate %>% ggplot(aes(x = State, y = n, fill = State)) + 
   geom_bar(stat = 'identity') + 
   coord_polar() + theme_bw() + 
@@ -46,12 +47,7 @@ numbystate %>% ggplot(aes(x = State, y = n, fill = State)) +
   labs(x = "State", y = "Count") + ggtitle("Number of Breweries per State")
 
 
-## A more accurate representation of brewery density is depicted by determining Breweries per Capita
-statepop <- get_acs(geography = 'state', variables = 	"B01003_001", year = 2019) %>% 
-  cbind(data.frame(State = state.abb[match(statepop$NAME, state.name)])) %>% 
-  mutate(population = estimate) %>% filter(!is.na(State)) %>% select(State, population)
-
-#or alternatively (if without census API access)
+## A more accurate representation of brewery density is depicted by determining Breweries per Capita. Data was accessed via the US Census Bureau API
 
 statepop <- read_csv("https://raw.githubusercontent.com/j-dominguez9/Case-Study-1/main/statepop.csv")
 
@@ -76,7 +72,7 @@ breweriespercapita %>% filter(!is.na(population)) %>% filter(!State == "SD") %>%
 ```
 
 
-````{r}
+```{r}
 ##Address the missing values in each column.
 sum(is.na(breweries))
 
@@ -96,7 +92,7 @@ beers_clean <- beers %>% filter(!is.na(Name)) %>% filter(!is.na(Beer_ID)) %>%
 ```
 
 
-````{r}
+```{r}
 ##Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
 
 #In order to join the two data sets successfully, we will need to find a primary key and a foreign key by which to join by. Let's examine the column names.
@@ -167,7 +163,7 @@ medIBU %>% ggplot(aes(x = reorder(State, medianIBU), y = medianIBU)) +
 ```
 
 
-````{r}
+```{r}
 ##Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
 
 #We will create a new data frame with relevant columns to explore this question.
@@ -187,7 +183,7 @@ maxABVIBU %>% filter(IBU == "138")
 ```
 
 
-````{r}
+```{r}
 ##Comment on the summary statistics and distribution of the ABV variable.
 summary(maxABVIBU$ABV)
 
@@ -208,7 +204,7 @@ maxABVIBU %>% ggplot(aes(x = ABV)) +
 ```
 
 
-````{r}
+```{r}
 ##Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.  Make your best judgment of a relationship and EXPLAIN your answer.
 
 #As we saw earlier, the distributions of both the IBU and ABV columns were right skewed, it'd be helpful to apply a log transformation before plotting. In the plot, we'd also like to include a linear regression line as well as its corresponding equation to better examine its relationship. 
@@ -253,6 +249,8 @@ IPA_Ales %>% ggplot(aes(x = ABV, y = IBU, color = Group)) +
   theme_bw() + 
   ggtitle("Measuring ABV and IBU in IPAs and Ales")
 
+```
+```{r}
 ## k-NN model. We first run a simple model to determine the accuracy of the model with k = 3.
 
 confusionMatrix(table(knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 3), IPA_Ales$Group))
@@ -285,13 +283,11 @@ which.max(MeanAcc)
 max(MeanAcc)
 
 confusionMatrix(table(IPA_Ales$Group, knn.cv(IPA_Ales[,8:9], IPA_Ales$Group, k = 8)))
+```
 
-#t-test
 
-t.test(IBU ~ Group, data = IPA_Ales, var.equal = FALSE)
-
+```{r}
 #Naive Bayes
-
 nbIPA_Ales <- IPA_Ales %>% select(Group, ABV, IBU)
 naiveBayes(Group~., data = nbIPA_Ales )
 
@@ -312,13 +308,17 @@ for(j in 1:iterations)
 MeanAcc = colMeans(masterAcc)
 MeanAcc
 
+```
+ 
+```{r}
+
 ### t-test
 Ales_ABV <- final_Ales %>% select(ABV, Group)
 IPAs_ABV <- final_IPAs %>% filter(!grepl("Lager", Style)) %>% select(ABV, Group)
 
 ABVjoin <- full_join(Ales_ABV, IPAs_ABV)
 
-t.test(ABV ~ Group, data = ABVjoin)
+t.test(log(ABV) ~ Group, data = ABVjoin)
 
 t.test(IBU ~ Group, data = IPA_Ales)
 
@@ -326,19 +326,17 @@ t.test(IBU ~ Group, data = IPA_Ales)
 
 nb2 <- IPA_Ales %>% select(State, Group) %>% mutate(State = as.factor(State))
 model <- naiveBayes(Group~., data = nb2)
-model
 predict(model, data.frame(State = "NH"), type = 'raw')
 
 
 ###NB State, City, Style (all). Find most popular Style by City
-
 df <- join %>% select(Style, City, State)
 model <- naiveBayes(Style~., data = df)
 predict(model, data.frame(State = "CO", City = "Buena Vista"))
 
 ###NB Find most popular Style by State
+df2 <- df %>% select(Style, State)
 model <- naiveBayes(Style~State, data = df2)
-model
 predict(model, data.frame(State = "CO"))
 
 
@@ -347,7 +345,7 @@ predict(model, data.frame(State = "CO"))
 df1 <- df %>% select(Style, City)
 model <- naiveBayes(City~Style, data = df1)
 pred <- predict(model, df1$Style)
-confusionMatrix(as.factor(pred), as.factor(df1$City))
+CM <- confusionMatrix(as.factor(pred), as.factor(df1$City))
 predict(model, data.frame(Style = "American IPA"))
 
 
@@ -355,7 +353,7 @@ predict(model, data.frame(Style = "American IPA"))
 
 model <- naiveBayes(State~Style, data = df2)
 pred <- predict(model, df2$Style)
-confusionMatrix(as.factor(pred), as.factor(df2$State))
+CM <- confusionMatrix(as.factor(pred), as.factor(df2$State))
 predict(model, data.frame(Style = "American IPA"))
 ```
  
