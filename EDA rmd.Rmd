@@ -355,6 +355,9 @@ predict(model, data.frame(Style = "American IPA"))
 ```
  
 ```{r Extra}
+
+# Scraping website for Top Rated Beers by State data
+
 content <- read_html("https://vinepair.com/articles/best-highest-rated-beer-every-state/")
 tables <- content %>% html_table(fill = TRUE)
 first_table <- tables[[1]]
@@ -372,7 +375,7 @@ head(topbeer)
 
 ```
  
-```{r}
+```{r Tableau}
 #Tableau Workbook URL: https://public.tableau.com/shared/4QFJCDFGZ?:display_count=n&:origin=viz_share_link
 ```
  
