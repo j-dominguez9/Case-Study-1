@@ -5,7 +5,7 @@ Midterm Project DDS
 Author: Joaquin Dominguez
 
 ## Abstract
-Two data sets were provided to explore the relationship between the varaiables contained therein. ABV and IBU served as continous quantitative variables and geographic location of breweries, brewery names, and styles of beer served as discrete categorical variables. The relationship between IBU and ABV, especially with respect to beer styles, was found to be significant (Pearson's r: 0.67, p-val <.0001). This was further confirmed by a knn machine learning model. Based on these insights, additional machine learning models were created to predict styles of beer given geographic location and vice-versa. We suggest that these models and insights be applied for R&D and marketing purposes. 
+Two data sets were provided to explore the relationship between the variables contained therein. ABV and IBU served as continous quantitative variables and geographic location of breweries, brewery names, and styles of beer served as discrete categorical variables. The relationship between IBU and ABV, especially with respect to beer styles, was found to be significant (Pearson's r: 0.67, p-val <.0001). This was further confirmed by a knn machine learning model. Based on these insights, additional machine learning models were created to predict styles of beer given geographic location and vice-versa. We suggest that these models and insights be applied for R&D and marketing purposes. 
 
 
 ## Purpose
