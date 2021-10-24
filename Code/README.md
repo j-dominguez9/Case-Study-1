@@ -1,11 +1,11 @@
-### R_code
+## R_code
 
 All R files used for Data Analysis
 
-### Rmd_knit
+## Rmd_knit
 
 Knit versions of rmd files
 
-### Tables
+## Tables
 
 Tables created in rmd files, used for data analysis
