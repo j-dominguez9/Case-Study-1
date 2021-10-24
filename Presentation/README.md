@@ -1,11 +1,11 @@
 ### Reporting our Insights
 
-PDF of presentation slides
+Powerpoint slides used for presentation.
 
 ### Tableau_Workbook
 
-URL for Tableau Workbook used for presentation
+URL for Tableau Workbook used for presentation.
 
 ### Video
 
-URL for video of Presentation
+URL for 7-minute video presenting the findings for our analysis.
