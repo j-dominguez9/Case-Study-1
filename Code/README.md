@@ -1,6 +1,6 @@
 ### R_code
 
-All rmd files used for Data Analysis
+All R files used for Data Analysis
 
 ### Rmd_knit
 
