@@ -5,6 +5,8 @@ Midterm Project DDS
 Author: Joaquin Dominguez
 
 ## Abstract
+Two data sets were provided to explore the relationship between the varaiables contained therein. ABV and IBU served as continous quantitative variables and geographic location of breweries, brewery names, and styles of beer served as discrete categorical variables. The relationship between IBU and ABV, especially with respect to beer styles, was found to be significant (Pearson's r: 0.67, p-val <.0001). This was further confirmed by a knn machine learning model. Based on these insights, additional machine learning models were created to predict styles of beer given geographic location and vice-versa. We suggest that these models and insights be applied for R&D and marketing purposes. 
+
 
 ## Purpose
 The purpose of this project is to investigate the relationship between multiple variables within the beers.csv and breweries.csv data sets and report insightful findings.
@@ -25,6 +27,4 @@ Additionally, we created multiple Naive-Bayes models that can be used to predict
 Data was also scraped from a website to create a map of top-rated beers by state. All visualizations of these findings were created in a Tableau workbook ("Presentation" --> "Tableau_Workbook").
 
 ## Conclusion
- ABV and IBU are one of many factors that can be analyzed in the make-up of a beer. Although not exhaustive, they can serve to help us analyze distributions, trends, and even create predictions that may serve a variety of purposes. In this analysis, we've highlighted the importance of ABV and IBU and provide insights with regard to what it could provide. By using statistical analyses 
-
-Additionally, we created machine learning models (knn and Naive-Bayes) to predict preferences of Style by Geography (City or State). We visualized that data through a tableau workbook (listed under Presentation folder). These models have potential to be used for R&D and marketing strategies.
+ ABV and IBU are one of many factors that can be analyzed in the make-up of a beer. Although not exhaustive, they can serve to help us analyze distributions, trends, and even create predictions that may serve a variety of purposes. In this analysis, we've highlighted the importance of ABV and IBU and provide insights with regard to what it could provide. By using statistical analyses as well as creating machine learning models, we suggest they be applied confidently for R&D and marketing purposes.
