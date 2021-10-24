@@ -3,8 +3,8 @@ title: "Case Study 1"
 author: "Joaquin"
 date: "10/8/2021"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ## **Setting up**
@@ -424,7 +424,7 @@ head(topbeer)
 
 ```
  
-```{r Tableau, eval=FALSE, include=FALSE}
+```{r Tableau, eval=FALSE}
 #Tableau Workbook URL: https://public.tableau.com/shared/4QFJCDFGZ?:display_count=n&:origin=viz_share_link
 ```
  
